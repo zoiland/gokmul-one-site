@@ -1,0 +1,70 @@
+.products-title { margin-block: 1rem .5rem; }
+
+.products-hero-desc {
+  margin-top: 1.25rem;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  color: var(--color-text-muted);
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+/* 제품 수 */
+.products-count {
+  font-size: .85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75rem;
+  letter-spacing: .04em;
+}
+
+/* 로딩 스피너 */
+.products-loading {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.products-loading__spinner {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Info cards ─── */
+.products-info {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.products-info__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.products-info__card {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+.products-info__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.products-info__card p {
+  font-size: .875rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}

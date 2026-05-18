@@ -1,0 +1,161 @@
+.brand-title { margin-block: 1rem .5rem; }
+.brand-hero-desc {
+  margin-top: 1.25rem;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  color: var(--color-text-muted);
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+/* ─── Mission ─── */
+.brand-mission {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.brand-mission__text p {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-top: 1rem;
+}
+
+.brand-mission__image-placeholder {
+  width: 100%;
+  max-width: 320px;
+  margin: auto;
+  aspect-ratio: 3/4;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-pale);
+}
+
+.brand-mission__image-placeholder svg {
+  width: 60%;
+  height: 60%;
+}
+
+/* ─── Values ─── */
+.brand-values { background: var(--color-surface); }
+
+.section-header-centered { text-align: center; margin-bottom: 3rem; }
+
+.value-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  transition: box-shadow .2s;
+}
+
+.value-card:hover { box-shadow: var(--shadow-md); }
+
+.value-card__icon {
+  font-size: 1.6rem;
+  color: var(--color-accent);
+}
+
+.value-card__title {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.value-card__desc {
+  font-size: .9rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ─── Timeline ─── */
+.timeline {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 2px solid var(--color-border);
+  padding-left: 2rem;
+}
+
+.timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 70px auto 1fr;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+.timeline__year {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-align: right;
+}
+
+.timeline__dot {
+  position: absolute;
+  left: -2.5rem;
+  top: .35rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 2px solid var(--color-bg);
+  box-shadow: 0 0 0 2px var(--color-accent-pale);
+}
+
+.timeline__event {
+  font-size: .9rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ─── Certs ─── */
+.brand-certs {
+  background: var(--color-text);
+}
+
+.brand-certs .label { color: var(--color-accent-pale); }
+
+.brand-certs__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  background: rgba(196,168,130,.12);
+  border: 1px solid rgba(196,168,130,.25);
+  border-radius: var(--radius-sm);
+  padding: .65rem 1.25rem;
+  font-size: .875rem;
+  color: var(--color-accent-pale);
+}
+
+.cert-item__icon {
+  color: var(--color-accent-pale);
+  font-size: .9rem;
+}
+
+/* ─── 반응형 ─── */
+@media (max-width: 768px) {
+  .brand-mission { grid-template-columns: 1fr; gap: 2rem; }
+  .brand-mission__image { display: none; }
+  .timeline__item { grid-template-columns: 60px 1fr; }
+  .timeline__dot  { left: -2.4rem; }
+}
