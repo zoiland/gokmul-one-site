@@ -4,6 +4,11 @@ import './Footer.css'
 export default function Footer() {
   return (
     <footer className="footer">
+      {/* 브랜드 이미지 — 원본 비율 전체 너비 표시 */}
+      <div className="footer__image-wrap">
+        <img src="/images/company/brand-lifestyle.png" alt="GOKMUL:ONE brand" className="footer__image" />
+      </div>
+
       <div className="container footer__inner">
         <div className="footer__brand">
           <span className="footer__logo-ko">곡물:원</span>

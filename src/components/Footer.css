@@ -1,26 +1,19 @@
 .footer {
-  position: relative;
+  background: var(--color-text);
   color: var(--color-accent-pale);
   margin-top: auto;
-  background-image: url('/images/company/brand-lifestyle.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
-/* 이미지 위 텍스트 가독성 오버레이 */
-.footer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(30, 20, 12, 0.78);
-  pointer-events: none;
-  z-index: 0;
+/* 이미지 영역 */
+.footer__image-wrap {
+  width: 100%;
+  line-height: 0;
 }
 
-.footer > * {
-  position: relative;
-  z-index: 1;
+.footer__image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .footer__inner {
