@@ -2,81 +2,42 @@
   "products": [
     {
       "id": 1,
-      "name": "Heirloom Black Rice",
-      "koreanName": "흑미",
-      "tagline": "Ancient grain, modern nutrition",
-      "description": "Sourced from traditional Korean farms, our black rice is rich in anthocyanins and offers a distinctive nutty flavour with a deep violet hue.",
+      "name": "Grain TokTok Chickpeas & Oats",
+      "koreanName": "병아리콩귀리",
+      "tagline": "Plant protein meets whole-grain goodness",
+      "description": "A nutritious blend of tender chickpeas and rolled oats, rich in plant-based protein and soluble fibre. Ideal for health-forward food formulations and retail.",
       "weight": "500g / 1kg",
-      "origin": "Jeollanam-do, Korea",
-      "certifications": ["HACCP", "Organic"],
+      "origin": "Korea",
+      "certifications": ["HACCP", "Non-GMO"],
       "category": "grain",
       "featured": true,
-      "image": ""
+      "image": "/images/products/product-chickpea-oat.png"
     },
     {
       "id": 2,
-      "name": "Five-Grain Blend",
-      "koreanName": "오곡",
-      "tagline": "Balanced harmony in every grain",
-      "description": "A traditional blend of rice, barley, black bean, millet, and sorghum — crafted for health-conscious consumers seeking whole-grain nutrition.",
-      "weight": "500g / 1kg / 5kg",
-      "origin": "Chungcheongnam-do, Korea",
-      "certifications": ["HACCP"],
+      "name": "Grain TokTok Black Soybean & Lentil",
+      "koreanName": "서리태렌틸콩",
+      "tagline": "Antioxidant-rich legume duo",
+      "description": "Korean black soybeans paired with green lentils — a premium legume blend packed with anthocyanins, protein, and iron for functional food applications.",
+      "weight": "500g / 1kg",
+      "origin": "Korea",
+      "certifications": ["HACCP", "Organic"],
       "category": "grain",
       "featured": true,
-      "image": ""
+      "image": "/images/products/product-black-soybean-lentil.png"
     },
     {
       "id": 3,
-      "name": "Golden Millet",
-      "koreanName": "기장",
-      "tagline": "Gluten-free ancient superfood",
-      "description": "Naturally gluten-free and packed with magnesium and phosphorus. Our golden millet is stone-milled to preserve its natural nutrients and gentle sweetness.",
-      "weight": "500g",
-      "origin": "Gangwon-do, Korea",
-      "certifications": ["HACCP", "Gluten-Free"],
-      "category": "grain",
-      "featured": false,
-      "image": ""
-    },
-    {
-      "id": 4,
-      "name": "Barley Flour",
-      "koreanName": "보리가루",
-      "tagline": "Versatile, fibre-rich baking flour",
-      "description": "Cold-milled from premium Korean barley, this flour is ideal for bread, pastries, and traditional Korean cuisine. High in beta-glucan for heart health.",
+      "name": "Grain TokTok Farro & Fava Bean",
+      "koreanName": "파로파바빈",
+      "tagline": "Ancient grains, modern nutrition",
+      "description": "Whole-grain farro combined with earthy fava beans for a hearty, fibre-dense blend. A versatile ingredient for soups, salads, and grain bowl applications.",
       "weight": "500g / 1kg",
-      "origin": "Jeollanam-do, Korea",
+      "origin": "Korea",
       "certifications": ["HACCP"],
       "category": "grain",
-      "featured": false,
-      "image": ""
-    },
-    {
-      "id": 5,
-      "name": "Sprouted Brown Rice",
-      "koreanName": "발아현미",
-      "tagline": "Enhanced nutrition through germination",
-      "description": "Carefully sprouted at controlled temperatures to unlock GABA, enzymes, and vitamins. A superior alternative to white rice for the health-forward consumer.",
-      "weight": "1kg / 2kg",
-      "origin": "Gyeonggi-do, Korea",
-      "certifications": ["HACCP", "Non-GMO"],
-      "category": "grain",
       "featured": true,
-      "image": ""
-    },
-    {
-      "id": 6,
-      "name": "Job's Tears (Adlay)",
-      "koreanName": "율무",
-      "tagline": "Korean wellness grain since antiquity",
-      "description": "Used in traditional Korean medicine for centuries, Job's Tears offer a chewy texture and mild flavour, prized for their anti-inflammatory properties.",
-      "weight": "500g",
-      "origin": "Chungcheongbuk-do, Korea",
-      "certifications": ["HACCP", "Non-GMO"],
-      "category": "grain",
-      "featured": false,
-      "image": ""
+      "image": "/images/products/product-farro-fava-bean.png"
     }
   ]
 }
