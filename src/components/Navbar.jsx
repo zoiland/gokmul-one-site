@@ -29,8 +29,7 @@ export default function Navbar() {
       <div className="container navbar__inner">
         {/* 로고 */}
         <NavLink to="/" className="navbar__logo">
-          <span className="navbar__logo-ko">곡물:원</span>
-          <span className="navbar__logo-en">GOKMUL:ONE</span>
+          <img src="/images/logo/logo-transparent.png" alt="GOKMUL:ONE" className="navbar__logo-img" />
         </NavLink>
 
         {/* 데스크탑 네비게이션 */}

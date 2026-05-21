@@ -1,7 +1,26 @@
 .footer {
-  background: var(--color-text);
+  position: relative;
   color: var(--color-accent-pale);
   margin-top: auto;
+  background-image: url('/images/company/brand-lifestyle.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 이미지 위 텍스트 가독성 오버레이 */
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 20, 12, 0.78);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.footer > * {
+  position: relative;
+  z-index: 1;
 }
 
 .footer__inner {
@@ -15,15 +34,15 @@
 .footer__logo-ko {
   display: block;
   font-family: var(--font-display);
-  font-size: .8rem;
-  color: var(--color-text-muted);
+  font-size: 1rem;
+  color: rgba(196,168,130,.6);
   letter-spacing: .05em;
 }
 
 .footer__logo-en {
   display: block;
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--color-white);
   letter-spacing: .06em;

@@ -38,6 +38,45 @@
       "category": "grain",
       "featured": true,
       "image": "/images/products/product-farro-fava-bean.png"
+    },
+    {
+      "id": 4,
+      "name": "Grain TokTok Premium Care — Chickpeas & Oats",
+      "koreanName": "프리미엄 케어 병아리콩귀리",
+      "tagline": "Single-serve wellness, elevated",
+      "description": "Our signature Chickpeas & Oats blend in a convenient 110g premium care format. Perfectly portioned for on-the-go nutrition without compromising quality.",
+      "weight": "110g",
+      "origin": "Korea",
+      "certifications": ["HACCP", "Non-GMO"],
+      "category": "premium",
+      "featured": false,
+      "image": "/images/products/premium-chickpea-oat-110g.png"
+    },
+    {
+      "id": 5,
+      "name": "Grain TokTok Premium Care — Black Soybean & Lentil",
+      "koreanName": "프리미엄 케어 서리태렌틸콩",
+      "tagline": "Antioxidant power in every serving",
+      "description": "Premium 110g single-serve pack of our Black Soybean & Lentil blend — rich in anthocyanins and plant protein, crafted for health-focused retail and gifting.",
+      "weight": "110g",
+      "origin": "Korea",
+      "certifications": ["HACCP", "Organic"],
+      "category": "premium",
+      "featured": false,
+      "image": "/images/products/premium-black-soybean-lentil-110g.png"
+    },
+    {
+      "id": 6,
+      "name": "Grain TokTok Premium Care — Khorasan & Farro",
+      "koreanName": "프리미엄 케어 호라산밀파로",
+      "tagline": "Heritage wheat, premium format",
+      "description": "Ancient Khorasan wheat and whole farro in a 110g premium care edition. A rare heritage grain combination with a rich, nutty flavour and superior nutritional profile.",
+      "weight": "110g",
+      "origin": "Korea",
+      "certifications": ["HACCP"],
+      "category": "premium",
+      "featured": false,
+      "image": "/images/products/premium-khorasan-farro-110g.png"
     }
   ]
 }
