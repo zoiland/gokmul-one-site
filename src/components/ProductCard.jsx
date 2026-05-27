@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom'
 import './ProductCard.css'
 
-// 이미지가 없을 때 표시할 grain 아이콘 SVG (인라인)
 function GrainPlaceholder() {
   return (
     <svg className="product-card__placeholder-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,10 +13,10 @@ function GrainPlaceholder() {
 }
 
 export default function ProductCard({ product }) {
-  const { name, koreanName, tagline, description, weight, origin, certifications, image } = product
+  const { slug, name, koreanName, tagline, description, weight, origin, certifications, image } = product
 
   return (
-    <article className="product-card">
+    <Link to={`/products/${slug}`} className="product-card" aria-label={`View ${name} details`}>
       {/* 이미지 영역 */}
       <div className="product-card__image-wrap">
         {image ? (
@@ -54,7 +54,9 @@ export default function ProductCard({ product }) {
             ))}
           </div>
         )}
+
+        <span className="product-card__cta">View Details →</span>
       </div>
-    </article>
+    </Link>
   )
 }

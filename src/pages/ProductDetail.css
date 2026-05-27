@@ -1,0 +1,147 @@
+/* ─── 로딩 ─── */
+.pdp-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.pdp-loading__spinner {
+  width: 36px;
+  height: 36px;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-accent);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── 뒤로 가기 ─── */
+.pdp-back {
+  padding-top: calc(var(--nav-height) + 1.25rem);
+  padding-bottom: .5rem;
+  background: var(--color-bg);
+}
+.pdp-back__link {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  transition: color .2s;
+}
+.pdp-back__link:hover { color: var(--color-accent-dark); }
+
+/* ─── Hero 레이아웃 ─── */
+.pdp-hero__inner {
+  display: grid;
+  grid-template-columns: 460px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ─── 대표 이미지 (썸네일) ─── */
+.pdp-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+.pdp-thumb__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .pdp-hero__inner { grid-template-columns: 1fr; gap: 2rem; }
+  .pdp-thumb { max-width: 400px; }
+}
+
+/* ─── 제품 정보 ─── */
+.pdp-info { display: flex; flex-direction: column; gap: .75rem; }
+
+.pdp-info__ko {
+  margin-bottom: -.25rem;
+}
+.pdp-info__name {
+  color: var(--color-text);
+  line-height: 1.25;
+}
+.pdp-info__tagline {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+.pdp-info__desc {
+  font-size: .95rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.pdp-info__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+.pdp-info__meta div { display: flex; flex-direction: column; gap: .2rem; }
+.pdp-info__meta dt {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+.pdp-info__meta dd { font-size: .9rem; color: var(--color-text); }
+
+.pdp-info__certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+.pdp-info__cta { align-self: flex-start; margin-top: .5rem; }
+
+/* ─── 갤러리: 세로 연결 ─── */
+.pdp-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 860px;
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 5vw, 4rem);
+}
+.pdp-gallery__item {
+  width: 100%;
+  line-height: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.pdp-gallery__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ─── 하단 CTA ─── */
+.pdp-footer {
+  border-top: 1px solid var(--color-border);
+}
+.pdp-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.pdp-footer__inner p {
+  color: var(--color-text-muted);
+}
+
+/* ─── 반응형 ─── */
+@media (max-width: 560px) {
+  .pdp-footer__inner { flex-direction: column; text-align: center; }
+}

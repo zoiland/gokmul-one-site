@@ -6,11 +6,24 @@
   display: flex;
   flex-direction: column;
   transition: box-shadow .25s, transform .25s;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .product-card:hover {
   box-shadow: var(--shadow-lg);
   transform: translateY(-4px);
+}
+
+.product-card__cta {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--color-accent);
+  text-transform: uppercase;
 }
 
 /* ─── 이미지 ─── */

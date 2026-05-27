@@ -2,45 +2,73 @@
   "products": [
     {
       "id": 1,
+      "slug": "chickpeas-oats",
       "name": "Grain TokTok Chickpeas & Oats",
       "koreanName": "병아리콩귀리",
       "tagline": "Plant protein meets whole-grain goodness",
       "description": "A nutritious blend of tender chickpeas and rolled oats, rich in plant-based protein and soluble fibre. Ideal for health-forward food formulations and retail.",
-      "weight": "500g / 1kg",
+      "weight": "70g",
       "origin": "Korea",
       "certifications": ["HACCP", "Non-GMO"],
       "category": "grain",
       "featured": true,
-      "image": "/images/products/product-chickpea-oat.png"
+      "image": "/images/products/product-chickpea-oat.png",
+      "gallery": [
+        "/images/product-page-70g/pdp-detail-01.png",
+        "/images/product-page-70g/pdp-detail-02.png",
+        "/images/product-page-70g/pdp-detail-03.png",
+        "/images/product-page-70g/pdp-detail-04.png",
+        "/images/product-page-70g/pdp-detail-05.png",
+        "/images/product-page-70g/pdp-detail-06.png"
+      ]
     },
     {
       "id": 2,
+      "slug": "black-soybean-lentil",
       "name": "Grain TokTok Black Soybean & Lentil",
       "koreanName": "서리태렌틸콩",
       "tagline": "Antioxidant-rich legume duo",
       "description": "Korean black soybeans paired with green lentils — a premium legume blend packed with anthocyanins, protein, and iron for functional food applications.",
-      "weight": "500g / 1kg",
+      "weight": "70g",
       "origin": "Korea",
       "certifications": ["HACCP", "Organic"],
       "category": "grain",
       "featured": true,
-      "image": "/images/products/product-black-soybean-lentil.png"
+      "image": "/images/products/product-black-soybean-lentil.png",
+      "gallery": [
+        "/images/product-page-70g/pdp-detail-01.png",
+        "/images/product-page-70g/pdp-detail-02.png",
+        "/images/product-page-70g/pdp-detail-03.png",
+        "/images/product-page-70g/pdp-detail-04.png",
+        "/images/product-page-70g/pdp-detail-05.png",
+        "/images/product-page-70g/pdp-detail-06.png"
+      ]
     },
     {
       "id": 3,
+      "slug": "farro-fava-bean",
       "name": "Grain TokTok Farro & Fava Bean",
       "koreanName": "파로파바빈",
       "tagline": "Ancient grains, modern nutrition",
       "description": "Whole-grain farro combined with earthy fava beans for a hearty, fibre-dense blend. A versatile ingredient for soups, salads, and grain bowl applications.",
-      "weight": "500g / 1kg",
+      "weight": "70g",
       "origin": "Korea",
       "certifications": ["HACCP"],
       "category": "grain",
       "featured": true,
-      "image": "/images/products/product-farro-fava-bean.png"
+      "image": "/images/products/product-farro-fava-bean.png",
+      "gallery": [
+        "/images/product-page-70g/pdp-detail-01.png",
+        "/images/product-page-70g/pdp-detail-02.png",
+        "/images/product-page-70g/pdp-detail-03.png",
+        "/images/product-page-70g/pdp-detail-04.png",
+        "/images/product-page-70g/pdp-detail-05.png",
+        "/images/product-page-70g/pdp-detail-06.png"
+      ]
     },
     {
       "id": 4,
+      "slug": "premium-care-chickpeas-oats",
       "name": "Grain TokTok Premium Care — Chickpeas & Oats",
       "koreanName": "프리미엄 케어 병아리콩귀리",
       "tagline": "Single-serve wellness, elevated",
@@ -50,10 +78,19 @@
       "certifications": ["HACCP", "Non-GMO"],
       "category": "premium",
       "featured": false,
-      "image": "/images/products/premium-chickpea-oat-110g.png"
+      "image": "/images/products/premium-chickpea-oat-110g.png",
+      "gallery": [
+        "/images/product-page-110g/pdp-detail-01.png",
+        "/images/product-page-110g/pdp-detail-02.png",
+        "/images/product-page-110g/pdp-detail-03.png",
+        "/images/product-page-110g/pdp-detail-04.png",
+        "/images/product-page-110g/pdp-detail-05.png",
+        "/images/product-page-110g/pdp-detail-06.png"
+      ]
     },
     {
       "id": 5,
+      "slug": "premium-care-black-soybean-lentil",
       "name": "Grain TokTok Premium Care — Black Soybean & Lentil",
       "koreanName": "프리미엄 케어 서리태렌틸콩",
       "tagline": "Antioxidant power in every serving",
@@ -63,10 +100,19 @@
       "certifications": ["HACCP", "Organic"],
       "category": "premium",
       "featured": false,
-      "image": "/images/products/premium-black-soybean-lentil-110g.png"
+      "image": "/images/products/premium-black-soybean-lentil-110g.png",
+      "gallery": [
+        "/images/product-page-110g/pdp-detail-01.png",
+        "/images/product-page-110g/pdp-detail-02.png",
+        "/images/product-page-110g/pdp-detail-03.png",
+        "/images/product-page-110g/pdp-detail-04.png",
+        "/images/product-page-110g/pdp-detail-05.png",
+        "/images/product-page-110g/pdp-detail-06.png"
+      ]
     },
     {
       "id": 6,
+      "slug": "premium-care-khorasan-farro",
       "name": "Grain TokTok Premium Care — Khorasan & Farro",
       "koreanName": "프리미엄 케어 호라산밀파로",
       "tagline": "Heritage wheat, premium format",
@@ -76,7 +122,15 @@
       "certifications": ["HACCP"],
       "category": "premium",
       "featured": false,
-      "image": "/images/products/premium-khorasan-farro-110g.png"
+      "image": "/images/products/premium-khorasan-farro-110g.png",
+      "gallery": [
+        "/images/product-page-110g/pdp-detail-01.png",
+        "/images/product-page-110g/pdp-detail-02.png",
+        "/images/product-page-110g/pdp-detail-03.png",
+        "/images/product-page-110g/pdp-detail-04.png",
+        "/images/product-page-110g/pdp-detail-05.png",
+        "/images/product-page-110g/pdp-detail-06.png"
+      ]
     }
   ]
 }
