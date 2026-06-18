@@ -1,8 +1,49 @@
-.brand-title { margin-block: 1rem .5rem; }
+/* ─── Brand Page Hero ─── */
+.brand-page-hero {
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.brand-page-hero__bg {
+  position: absolute;
+  inset: -6%;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.06);
+}
+
+.brand-page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(42,31,20,0.75) 0%, rgba(42,31,20,0.4) 60%, rgba(42,31,20,0.1) 100%),
+    linear-gradient(to top, rgba(42,31,20,0.5) 0%, transparent 50%);
+}
+
+.brand-page-hero__content {
+  position: relative;
+  z-index: 1;
+  padding-top: calc(var(--nav-height) + clamp(3rem, 6vw, 5rem));
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.brand-page-hero__eyebrow {
+  color: rgba(255,255,255,0.65);
+}
+
+.brand-title {
+  color: #fff;
+  margin-block: 1rem .5rem;
+  text-shadow: 0 2px 48px rgba(42,31,20,0.35);
+}
+
 .brand-hero-desc {
   margin-top: 1.25rem;
   font-size: clamp(1rem, 1.8vw, 1.125rem);
-  color: var(--color-text-muted);
+  color: rgba(255,255,255,0.72);
   max-width: 520px;
   line-height: 1.8;
 }

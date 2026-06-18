@@ -36,9 +36,11 @@ export default function Brand() {
   return (
     <>
       {/* ─── 페이지 헤더 ─── */}
-      <section className="page-hero">
-        <div className="container">
-          <p className="label">Our Story</p>
+      <section className="brand-page-hero">
+        <div className="brand-page-hero__bg" style={{ backgroundImage: 'url(/images/company/brand-story-banner.png)' }} />
+        <div className="brand-page-hero__overlay" />
+        <div className="brand-page-hero__content container">
+          <p className="label brand-page-hero__eyebrow">Our Story</p>
           <h1 className="display brand-title">
             Grain, Grown<br />with Purpose.
           </h1>
