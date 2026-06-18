@@ -5,21 +5,21 @@ import './Home.css'
 
 const SCENES = [
   {
-    image: '/images/hero/hero-pc.png',
+    image: '/images/hero/banner-001.png',
     eyebrow: 'Premium Korean Grain Products',
     headline: ["From Korea's Soil,", "To the World's Table."],
     cta: { label: 'Explore Products', to: '/products' },
     ctaAlt: { label: 'Our Story', to: '/brand' },
   },
   {
-    image: '/images/hero/hero-banner-2.png',
+    image: '/images/hero/banner-002.png',
     eyebrow: 'Heritage & Craft',
     headline: ['Rooted in Tradition,', 'Driven by Quality.'],
     cta: null,
     ctaAlt: null,
   },
   {
-    image: '/images/product-page-110g/pdp-detail-02.png',
+    image: '/images/hero/banner-003.png',
     eyebrow: 'Premium Care Collection',
     headline: ['Ancient Grains,', 'Modern Standards.'],
     cta: { label: 'View Products', to: '/products' },
