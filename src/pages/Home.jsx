@@ -3,143 +3,298 @@ import { Link } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import './Home.css'
 
+const SCENES = [
+  {
+    image: '/images/hero/hero-pc.png',
+    eyebrow: 'Premium Korean Grain Products',
+    headline: ["From Korea's Soil,", "To the World's Table."],
+    cta: { label: 'Explore Products', to: '/products' },
+    ctaAlt: { label: 'Our Story', to: '/brand' },
+  },
+  {
+    image: '/images/hero/hero-banner-2.png',
+    eyebrow: 'Heritage & Craft',
+    headline: ['Rooted in Tradition,', 'Driven by Quality.'],
+    cta: null,
+    ctaAlt: null,
+  },
+  {
+    image: '/images/product-page-110g/pdp-detail-02.png',
+    eyebrow: 'Premium Care Collection',
+    headline: ['Ancient Grains,', 'Modern Standards.'],
+    cta: { label: 'View Products', to: '/products' },
+    ctaAlt: { label: 'Get in Touch', to: '/contact' },
+  },
+]
+
+const ORIGINS = [
+  {
+    bg: '/images/department-store/house-of-shinsegae.png',
+    tag: 'Wellness Market',
+    title: 'House of Shinsegae',
+    desc: 'Cheongdam Twelve Market — Korea\'s premier curated wellness destination.',
+  },
+  {
+    bg: '/images/department-store/shinsegae-main.png',
+    tag: 'Premium Retail',
+    title: 'Shinsegae Main Branch',
+    desc: 'Myeongdong flagship — Korea\'s most prestigious department store since 1930.',
+  },
+  {
+    bg: '/images/department-store/shinsegae-gangnam.png',
+    tag: 'Premium Retail',
+    title: 'Shinsegae Gangnam',
+    desc: 'The largest department store in the world, serving Seoul\'s most discerning shoppers.',
+  },
+]
+
+const STATS = [
+  { value: '15+', label: 'Years of Expertise' },
+  { value: '20+', label: 'Countries Exported' },
+  { value: '100%', label: 'HACCP Certified' },
+  { value: '30+', label: 'Product Varieties' },
+]
+
+// 스크롤 진행도 p(0→1) 에서 씬 i 의 opacity 계산
+// FADE: 씬 경계 부근에서 crossfade 가 일어나는 폭 (0~1 단위)
+function getSceneOpacity(i, p, n = SCENES.length, FADE = 0.09) {
+  const start = i / n
+  const end   = (i + 1) / n
+  if (i === 0) {
+    if (p <= end - FADE) return 1
+    if (p >= end)        return 0
+    return (end - p) / FADE
+  }
+  if (i === n - 1) {
+    if (p <= start)        return 0
+    if (p >= start + FADE) return 1
+    return (p - start) / FADE
+  }
+  if (p <= start || p >= end) return 0
+  if (p <= start + FADE) return (p - start) / FADE
+  if (p >= end   - FADE) return (end - p)   / FADE
+  return 1
+}
+
 export default function Home() {
-  const [featured, setFeatured] = useState([])
-  const [revealed, setRevealed] = useState(false)
-  const heroRef = useRef(null)
+  const [products, setProducts]       = useState([])
+  const [currentScene, setCurrentScene] = useState(-1)
+  const [statsVisible, setStatsVisible] = useState(false)
+
+  const heroRef        = useRef(null)
+  const layerRefs      = useRef([])   // 이미지 레이어 DOM refs (직접 opacity 조작)
+  const currentSceneRef = useRef(-1)
+  const statsRef       = useRef(null)
 
   useEffect(() => {
     fetch('./data/products.json')
       .then(r => r.json())
-      .then(d => setFeatured(d.products.filter(p => p.featured)))
+      .then(d => setProducts(d.products.filter(p => p.featured)))
       .catch(console.error)
   }, [])
 
+  // 첫 씬 텍스트 fade-in
   useEffect(() => {
+    const t = setTimeout(() => {
+      setCurrentScene(0)
+      currentSceneRef.current = 0
+    }, 120)
+    return () => clearTimeout(t)
+  }, [])
+
+  // 스크롤 진행도 → 이미지 opacity 연속 업데이트 + 텍스트 씬 전환
+  useEffect(() => {
+    const hero = heroRef.current
+    if (!hero) return
+
     const onScroll = () => {
-      if (!heroRef.current) return
-      // heroRef(200vh section)의 top이 뷰포트 기준으로 얼마나 위로 올라갔는지
-      const scrolledIn = -heroRef.current.getBoundingClientRect().top
-      // 스크롤 버짓(100vh) 중 절반(50vh) 지나면 reveal
-      setRevealed(scrolledIn >= window.innerHeight * 0.5)
+      const scrollable = hero.offsetHeight - window.innerHeight
+      const p = Math.max(0, Math.min(1, -hero.getBoundingClientRect().top / scrollable))
+
+      // 이미지: re-render 없이 직접 DOM 조작 (60fps 부드러움)
+      layerRefs.current.forEach((el, i) => {
+        if (el) el.style.opacity = getSceneOpacity(i, p)
+      })
+
+      // 텍스트: 지배적 씬이 바뀔 때만 state 업데이트
+      const dominant = Math.min(SCENES.length - 1, Math.floor(p * SCENES.length + 0.03))
+      if (dominant !== currentSceneRef.current) {
+        currentSceneRef.current = dominant
+        setCurrentScene(dominant)
+      }
     }
+
     window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll() // 마운트 시 즉시 실행
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Stats bar 등장
+  useEffect(() => {
+    if (!statsRef.current) return
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setStatsVisible(true); obs.disconnect() } },
+      { threshold: 0.4 }
+    )
+    obs.observe(statsRef.current)
+    return () => obs.disconnect()
+  }, [])
+
+  // 나머지 콘텐츠 scroll reveal
+  useEffect(() => {
+    const els = document.querySelectorAll('[data-reveal]:not(.is-visible)')
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target) }
+      }),
+      { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+    )
+    els.forEach(el => obs.observe(el))
+    return () => obs.disconnect()
+  }, [products.length])
+
   return (
     <>
-      {/* ─── 200vh Hero ─── */}
-      <section className="hero" ref={heroRef}>
+      {/* ─── Hero: sticky 컨테이너 (400vh) ─── */}
+      {/* 100vh per scene of scroll + 100vh natural exit to stats */}
+      <div className="hero-block" ref={heroRef}>
+        <div className="hero-block__inner">
 
-        {/* sticky layer: 항상 뷰포트에 고정 */}
-        <div className="hero-sticky">
+          {/* 이미지 레이어 — opacity를 JS가 직접 제어 (crossfade) */}
+          {SCENES.map((s, i) => (
+            <div
+              key={i}
+              className="hero-layer"
+              ref={el => layerRefs.current[i] = el}
+              style={{ opacity: i === 0 ? 1 : 0 }}
+            >
+              <div className="hero-layer__bg" style={{ backgroundImage: `url(${s.image})` }} />
+              <div className="hero-layer__overlay" />
+            </div>
+          ))}
 
-          {/* 오버레이 */}
-          <div className={`hero-overlay${revealed ? ' hero-overlay--on' : ''}`} aria-hidden="true" />
-
-          {/* 텍스트 + CTA */}
-          <div className={`hero-body${revealed ? ' hero-body--on' : ''}`}>
-            <div className="container">
-              <p className="hero-body__eyebrow label">Premium Korean Grain Products</p>
-              <h1 className="hero-body__title display">
-                From Korea's&nbsp;Soil,<br />
-                To the&nbsp;World's&nbsp;Table.
-              </h1>
-              <p className="hero-body__desc">
-                GOKMUL:ONE sources and processes the finest heritage grains from
-                Korea's most fertile regions — delivering unmatched quality and
-                traceability to global food brands and retailers.
-              </p>
-              <div className="hero-body__actions">
-                <Link to="/products" className="btn btn-primary">Explore Products</Link>
-                <Link to="/brand"    className="btn btn-outline">Our Story</Link>
+          {/* 텍스트 레이어 — CSS transition으로 씬 전환 시 애니메이션 */}
+          {SCENES.map((s, i) => (
+            <div
+              key={i}
+              className={`hero-text${currentScene === i ? ' hero-text--visible' : ''}`}
+            >
+              <div className="hero-text__content container">
+                <p className="hero-eyebrow label">{s.eyebrow}</p>
+                <h1 className="hero-title display">
+                  {s.headline.map((line, j) => <span key={j}>{line}</span>)}
+                </h1>
+                {(s.cta || s.ctaAlt) && (
+                  <div className="hero-actions">
+                    {s.cta    && <Link to={s.cta.to}    className="btn btn-primary">{s.cta.label}</Link>}
+                    {s.ctaAlt && <Link to={s.ctaAlt.to} className="btn btn-outline-light">{s.ctaAlt.label}</Link>}
+                  </div>
+                )}
               </div>
             </div>
-          </div>
+          ))}
 
-          {/* 스크롤 유도 화살표 */}
-          <div className={`hero-cue${revealed ? ' hero-cue--gone' : ''}`} aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M12 5v14M5 12l7 7 7-7"
-                stroke="currentColor" strokeWidth="1.5"
-                strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          {/* 우측 하단 씬 번호 */}
+          <span className="hero-num" aria-hidden="true">
+            {String(Math.max(0, currentScene) + 1).padStart(2, '0')}
+          </span>
+
+          {/* 스크롤 유도 라인 (첫 씬에서만) */}
+          <div className={`hero-scroll-line${currentScene > 0 ? ' hero-scroll-line--hidden' : ''}`} aria-hidden="true">
+            <span />
           </div>
 
         </div>
-      </section>
+      </div>
 
-      {/* ─── Stats bar ─── */}
-      <section className="stats-bar section-sm">
-        <div className="container stats-bar__grid">
-          {[
-            { value: '15+',  label: 'Years of expertise' },
-            { value: '20+',  label: 'Countries exported' },
-            { value: '100%', label: 'HACCP certified'    },
-            { value: '30+',  label: 'Product varieties'  },
-          ].map(({ value, label }) => (
-            <div key={label} className="stats-bar__item">
-              <span className="stats-bar__value">{value}</span>
-              <span className="stats-bar__label">{label}</span>
+      {/* ─── Stats ─── */}
+      <section className="home-stats" ref={statsRef}>
+        <div className="container home-stats__grid">
+          {STATS.map(({ value, label }, i) => (
+            <div
+              key={i}
+              className={`home-stat${statsVisible ? ' home-stat--visible' : ''}`}
+              style={{ '--delay': `${i * 0.1}s` }}
+            >
+              <span className="home-stat__value">{value}</span>
+              <span className="home-stat__label">{label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ─── Featured products ─── */}
-      <section className="section featured">
+      {/* ─── Origin Tiles ─── */}
+      <section className="origins section">
         <div className="container">
-          <div className="section-header">
-            <p className="label">Our Selection</p>
-            <h2 className="heading-lg">Featured Products</h2>
-            <div className="divider" />
-            <p className="section-header__desc">
-              Hand-selected varieties that represent the depth and diversity
-              of Korean grain heritage.
-            </p>
+          <div className="origins__header" data-reveal>
+            <p className="label">Available At</p>
+            <h2 className="heading-lg">Korea's Finest Retailers</h2>
           </div>
-          <div className="grid-3">
-            {featured.map(p => <ProductCard key={p.id} product={p} />)}
-          </div>
-          <div className="featured__cta">
-            <Link to="/products" className="btn btn-outline">View All Products</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Brand teaser ─── */}
-      <section className="brand-teaser section">
-        <div className="container brand-teaser__inner">
-          <div className="brand-teaser__text">
-            <p className="label">Who We Are</p>
-            <h2 className="heading-lg">Rooted in Tradition,<br />Driven by Quality</h2>
-            <div className="divider" />
-            <p>
-              For over fifteen years, GOKMUL:ONE has worked directly with Korean
-              farmers to bring heritage grains to the global table. We believe
-              that great products start with great ingredients — and great
-              relationships with those who grow them.
-            </p>
-            <Link to="/brand" className="btn btn-ghost brand-teaser__link">
-              Learn about our brand →
-            </Link>
-          </div>
-          <div className="brand-teaser__visual" aria-hidden="true">
-            <div className="brand-teaser__circle brand-teaser__circle--1" />
-            <div className="brand-teaser__circle brand-teaser__circle--2" />
-            <div className="brand-teaser__circle brand-teaser__circle--3" />
-            <span className="brand-teaser__ko">곡물:원</span>
+          <div className="origins__grid">
+            {ORIGINS.map(({ bg, tag, title, desc }, i) => (
+              <div
+                key={i}
+                className="origin-tile"
+                data-reveal
+                style={{ '--delay': `${i * 0.12}s` }}
+              >
+                <div className="origin-tile__image" style={{ backgroundImage: `url(${bg})` }} />
+                <div className="origin-tile__overlay" />
+                <div className="origin-tile__body">
+                  <span className="origin-tile__tag label">{tag}</span>
+                  <h3 className="origin-tile__title">{title}</h3>
+                  <p className="origin-tile__desc">{desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ─── CTA banner ─── */}
-      <section className="cta-banner section-sm">
-        <div className="container cta-banner__inner">
+      {/* ─── Featured Products ─── */}
+      <section className="home-featured section">
+        <div className="container">
+          <div className="home-featured__header" data-reveal>
+            <div>
+              <p className="label">Our Selection</p>
+              <h2 className="heading-lg">Featured Products</h2>
+            </div>
+            <Link to="/products" className="btn btn-outline">View All</Link>
+          </div>
+          <div className="home-featured__grid">
+            {products.map((p, i) => (
+              <div key={p.id} data-reveal style={{ '--delay': `${i * 0.1}s` }}>
+                <ProductCard product={p} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Brand Statement ─── */}
+      <section className="brand-statement">
+        <div className="brand-statement__bg" style={{ backgroundImage: 'url(/images/company/brand-lifestyle.png)' }} />
+        <div className="brand-statement__inner container">
+          <p className="brand-statement__eyebrow label" data-reveal>Since 2009</p>
+          <h2 className="brand-statement__headline display" data-reveal>
+            세계가 인정하는<br /><em>곡물:원</em>
+          </h2>
+          <p className="brand-statement__sub" data-reveal>
+            Fifteen years of bringing Korea&rsquo;s finest heritage grains<br />
+            to global markets &mdash; with integrity, traceability, and purpose.
+          </p>
+          <div data-reveal>
+            <Link to="/brand" className="btn btn-outline-light">Our Story</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CTA ─── */}
+      <section className="home-cta section-sm">
+        <div className="container home-cta__inner" data-reveal>
           <div>
             <h2 className="heading-md">Ready to source Korean grains?</h2>
-            <p>Our team is available to answer any product or MOQ inquiry.</p>
+            <p>MOQ inquiries, custom packaging, and OEM/ODM &mdash; our team is ready.</p>
           </div>
           <Link to="/contact" className="btn btn-primary">Get in Touch</Link>
         </div>

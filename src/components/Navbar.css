@@ -11,10 +11,17 @@
 
 .navbar--scrolled {
   background: rgba(247, 244, 239, .92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 var(--color-border);
 }
+
+/* On dark hero — make links/logo white */
+.navbar--dark-hero .navbar__link { color: rgba(255,255,255,0.75); }
+.navbar--dark-hero .navbar__link:hover,
+.navbar--dark-hero .navbar__link--active { color: #fff; }
+.navbar--dark-hero .navbar__link--active::after { background: #fff; }
+.navbar--dark-hero .navbar__burger span { background: #fff; }
 
 .navbar__inner {
   height: 100%;

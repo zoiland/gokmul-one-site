@@ -13,6 +13,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled,  setScrolled]  = useState(false)
   const location = useLocation()
+  const isHome = location.pathname === '/'
 
   // 스크롤 감지 → 배경 전환
   useEffect(() => {
@@ -25,7 +26,7 @@ export default function Navbar() {
   useEffect(() => { setMenuOpen(false) }, [location])
 
   return (
-    <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}`}>
+    <header className={`navbar${scrolled ? ' navbar--scrolled' : ''}${isHome && !scrolled ? ' navbar--dark-hero' : ''}`}>
       <div className="container navbar__inner">
         {/* 로고 */}
         <NavLink to="/" className="navbar__logo">
