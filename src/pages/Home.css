@@ -301,7 +301,7 @@
    ════════════════════════════════════════ */
 .brand-statement {
   position: relative;
-  min-height: 80vh;
+  min-height: 95vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -312,13 +312,13 @@
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.2) saturate(0.7);
+  filter: brightness(0.52) saturate(0.85);
 }
 
 .brand-statement__inner {
   position: relative;
   z-index: 1;
-  padding-block: clamp(6rem, 12vw, 10rem);
+  padding-block: clamp(8rem, 14vw, 12rem);
   color: #fff;
   text-align: center;
 }

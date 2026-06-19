@@ -277,11 +277,11 @@ export default function Home() {
         <div className="brand-statement__inner container">
           <p className="brand-statement__eyebrow label" data-reveal>Since 2022</p>
           <h2 className="brand-statement__headline display" data-reveal>
-            세계가 인정하는<br /><em>곡물:원</em>
+            Premium Korean<br /><em>Whole Grains,</em>
           </h2>
           <p className="brand-statement__sub" data-reveal>
-            Fifteen years of bringing Korea&rsquo;s finest heritage grains<br />
-            to global markets &mdash; with integrity, traceability, and purpose.
+            We bring together Korea's grain heritage, clean ingredients, and balanced nutrition<br />
+            to create convenient wellness foods for today's global consumers.
           </p>
           <div data-reveal>
             <Link to="/brand" className="btn btn-outline-light">Our Story</Link>
