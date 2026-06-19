@@ -273,9 +273,9 @@ export default function Home() {
 
       {/* ─── Brand Statement ─── */}
       <section className="brand-statement">
-        <div className="brand-statement__bg" style={{ backgroundImage: 'url(/images/company/brand-lifestyle.png)' }} />
+        <div className="brand-statement__bg" style={{ backgroundImage: 'url(/images/company/ceramic-shot.png)' }} />
         <div className="brand-statement__inner container">
-          <p className="brand-statement__eyebrow label" data-reveal>Since 2009</p>
+          <p className="brand-statement__eyebrow label" data-reveal>Since 2022</p>
           <h2 className="brand-statement__headline display" data-reveal>
             세계가 인정하는<br /><em>곡물:원</em>
           </h2>

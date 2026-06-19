@@ -24,7 +24,7 @@ const VALUES = [
 ]
 
 const TIMELINE = [
-  { year: '2009', event: 'Founded in Jeonju, Jeollabuk-do with a mission to export Korean heritage grains.' },
+  { year: '2022', event: 'Founded with a mission to bring Korea\'s premium whole grains to global wellness consumers.' },
   { year: '2012', event: 'First international export to Japan. Established HACCP-certified processing facility.' },
   { year: '2015', event: 'Expanded to Europe and the Middle East. Launched organic product line.' },
   { year: '2018', event: 'Partnered with 40+ certified farms. Introduced custom OEM/ODM packaging service.' },
@@ -56,20 +56,12 @@ export default function Brand() {
         <div className="container brand-mission">
           <div className="brand-mission__text">
             <p className="label">Mission</p>
-            <h2 className="heading-lg">Bringing Korea's Finest<br />to Global Tables</h2>
+            <h2 className="heading-lg">Premium Korean Whole Grains,<br />Curated for Everyday Wellness</h2>
             <div className="divider" />
             <p>
-              GOKMUL:ONE was established in 2009 with a singular conviction: the
-              finest grains grown in Korea were unknown to the world. We set out
-              to change that — not by compromising on quality, but by building
-              the supply chain and relationships that make premium Korean grains
-              accessible to international food companies, retailers, and brands.
-            </p>
-            <p>
-              Today, our products can be found in twenty countries across four
-              continents. Yet our approach remains unchanged: work closely with
-              farmers, maintain the highest quality standards, and build
-              partnerships built on trust.
+              We bring together Korea's grain heritage, clean ingredients, and
+              balanced nutrition to create convenient wellness foods for today's
+              global consumers.
             </p>
           </div>
           <div className="brand-mission__image" aria-hidden="true">
