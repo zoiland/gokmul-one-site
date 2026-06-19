@@ -284,7 +284,7 @@ export default function Home() {
             to create convenient wellness foods for today's global consumers.
           </p>
           <div data-reveal>
-            <Link to="/brand" className="btn btn-outline-light">Our Story</Link>
+            <a href="/documents/gokmul-one-product-catalog.pdf" download className="btn btn-outline-light">View Product Catalog</a>
           </div>
         </div>
       </section>
