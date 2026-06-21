@@ -9,21 +9,37 @@ const INQUIRY_TYPES = [
   'Other',
 ]
 
+const FORMSPREE_ID = 'YOUR_FORM_ID'
+
 export default function Contact() {
   const [form, setForm] = useState({
     name: '', company: '', email: '', country: '',
     type: '', message: '',
   })
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleChange = e =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
 
-  // 정적 사이트이므로 실제 전송 없이 완료 UI만 표시
-  // 추후 Formspree / EmailJS 등으로 연동 가능
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
-    setSubmitted(true)
+    setError(false)
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          _cc: 'river@gokmulone.com',
+          _subject: `[GOKMUL:ONE] New Inquiry — ${form.type || 'General'}`,
+        }),
+      })
+      if (res.ok) setSubmitted(true)
+      else setError(true)
+    } catch {
+      setError(true)
+    }
   }
 
   return (
@@ -48,9 +64,9 @@ export default function Contact() {
             <div className="contact-info__block">
               <p className="label">Head Office</p>
               <address>
-                <p>GOKMUL:ONE Co., Ltd.</p>
-                <p>곡물:원 주식회사</p>
-                <p>123, Grainway-ro, Jeonju-si,<br />Jeollabuk-do, Republic of Korea</p>
+                <p>곡물:원 (GOKMUL:ONE)</p>
+                <p>CEO: 김강</p>
+                <p>511ho, 5F, Annex Bldg. A,<br />12 Gaetbeol-ro, Yeonsu-gu,<br />Incheon 21999, Republic of Korea</p>
               </address>
             </div>
 
@@ -59,16 +75,24 @@ export default function Contact() {
               <ul>
                 <li>
                   <span>Email</span>
-                  <a href="mailto:contact@gokmulone.com">contact@gokmulone.com</a>
+                  <a href="mailto:zoiland@gokmulone.com">zoiland@gokmulone.com</a>
+                </li>
+                <li>
+                  <span>Email</span>
+                  <a href="mailto:river@gokmulone.com">river@gokmulone.com</a>
                 </li>
                 <li>
                   <span>Phone</span>
-                  <a href="tel:+8202000000000">+82-2-0000-0000</a>
+                  <a href="tel:05070443003">0507-0443-0003</a>
                 </li>
-                <li>
-                  <span>WeChat / KakaoTalk</span>
-                  <span>@gokmulone</span>
-                </li>
+              </ul>
+            </div>
+
+            <div className="contact-info__block">
+              <p className="label">Business Info</p>
+              <ul>
+                <li><span>사업자등록번호</span><span>638-13-02161</span></li>
+                <li><span>통신판매업번호</span><span>2024-인천연수구-0854</span></li>
               </ul>
             </div>
 
@@ -79,14 +103,6 @@ export default function Contact() {
                 <li><span>Sat</span><span>By appointment</span></li>
                 <li><span>Sun / Holidays</span><span>Closed</span></li>
               </ul>
-            </div>
-
-            <div className="contact-info__block">
-              <p className="label">Follow Us</p>
-              <div className="contact-social">
-                <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                <a href="#" aria-label="Instagram">Instagram</a>
-              </div>
             </div>
           </aside>
 
@@ -167,6 +183,10 @@ export default function Contact() {
                 <p className="form-note">
                   * Required fields. We respect your privacy and will never share your information.
                 </p>
+
+                {error && (
+                  <p className="form-error">Something went wrong. Please email us directly at zoiland@gokmulone.com</p>
+                )}
 
                 <button type="submit" className="btn btn-primary contact-form__submit">
                   Send Inquiry

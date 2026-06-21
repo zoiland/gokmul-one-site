@@ -168,6 +168,12 @@ address {
 
 .contact-form__submit { align-self: flex-start; }
 
+.form-error {
+  color: #c0392b;
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+}
+
 /* ─── 반응형 ─── */
 @media (max-width: 900px) {
   .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
