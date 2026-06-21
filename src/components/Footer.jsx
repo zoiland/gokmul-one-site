@@ -31,9 +31,10 @@ export default function Footer() {
         <div className="footer__contact">
           <span className="label">Contact</span>
           <ul>
-            <li>contact@gokmulone.com</li>
-            <li>+82-2-0000-0000</li>
-            <li>Seoul, Republic of Korea</li>
+            <li><a href="mailto:zoiland@gokmulone.com">zoiland@gokmulone.com</a></li>
+            <li><a href="mailto:river@gokmulone.com">river@gokmulone.com</a></li>
+            <li><a href="tel:05070443003">0507-0443-0003</a></li>
+            <li>인천광역시 연수구 갯벌로 12<br />별관 A동 5층 511호 (21999)</li>
           </ul>
         </div>
       </div>
@@ -41,7 +42,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container">
           <p>© {new Date().getFullYear()} GOKMUL:ONE. All rights reserved.</p>
-          <p>곡물:원 | 사업자등록번호: 000-00-00000</p>
+          <p>곡물:원 | 대표 김강 | 사업자등록번호: 638-13-02161 | 통신판매업번호: 2024-인천연수구-0854</p>
         </div>
       </div>
     </footer>
