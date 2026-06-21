@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import './Contact.css'
 
 const INQUIRY_TYPES = [
@@ -9,38 +9,8 @@ const INQUIRY_TYPES = [
   'Other',
 ]
 
-const FORMSPREE_ID = 'YOUR_FORM_ID'
-
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: '', company: '', email: '', country: '',
-    type: '', message: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
-  const [error, setError] = useState(false)
-
-  const handleChange = e =>
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
-
-  const handleSubmit = async e => {
-    e.preventDefault()
-    setError(false)
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...form,
-          _cc: 'river@gokmulone.com',
-          _subject: `[GOKMUL:ONE] New Inquiry — ${form.type || 'General'}`,
-        }),
-      })
-      if (res.ok) setSubmitted(true)
-      else setError(true)
-    } catch {
-      setError(true)
-    }
-  }
+  const [state, handleSubmit] = useForm('mzdlpvvp')
 
   return (
     <>
@@ -108,33 +78,32 @@ export default function Contact() {
 
           {/* ─── 오른쪽: 문의 폼 ─── */}
           <div className="contact-form-wrap">
-            {submitted ? (
+            {state.succeeded ? (
               <div className="contact-success">
                 <div className="contact-success__icon">✓</div>
                 <h2 className="heading-md">Thank you for your inquiry.</h2>
                 <p>We've received your message and will respond within 1–2 business days.</p>
-                <button className="btn btn-outline" onClick={() => setSubmitted(false)}>
-                  Send another inquiry
-                </button>
               </div>
             ) : (
-              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <h2 className="heading-md contact-form__heading">Send an Inquiry</h2>
+
+                <input type="hidden" name="_cc" value="river@gokmulone.com" />
+                <input type="hidden" name="_subject" value="[GOKMUL:ONE] New Inquiry from Website" />
 
                 <div className="form-row">
                   <div className="form-field">
                     <label htmlFor="name">Full Name *</label>
                     <input
                       id="name" name="name" type="text"
-                      value={form.name} onChange={handleChange}
                       placeholder="Jane Smith" required
                     />
+                    <ValidationError field="name" errors={state.errors} className="form-error" />
                   </div>
                   <div className="form-field">
                     <label htmlFor="company">Company *</label>
                     <input
                       id="company" name="company" type="text"
-                      value={form.company} onChange={handleChange}
                       placeholder="Acme Foods Ltd." required
                     />
                   </div>
@@ -145,15 +114,14 @@ export default function Contact() {
                     <label htmlFor="email">Email Address *</label>
                     <input
                       id="email" name="email" type="email"
-                      value={form.email} onChange={handleChange}
                       placeholder="jane@acmefoods.com" required
                     />
+                    <ValidationError field="email" errors={state.errors} className="form-error" />
                   </div>
                   <div className="form-field">
                     <label htmlFor="country">Country</label>
                     <input
                       id="country" name="country" type="text"
-                      value={form.country} onChange={handleChange}
                       placeholder="United States"
                     />
                   </div>
@@ -161,7 +129,7 @@ export default function Contact() {
 
                 <div className="form-field">
                   <label htmlFor="type">Inquiry Type</label>
-                  <select id="type" name="type" value={form.type} onChange={handleChange}>
+                  <select id="type" name="type">
                     <option value="">Select a topic…</option>
                     {INQUIRY_TYPES.map(t => (
                       <option key={t} value={t}>{t}</option>
@@ -173,23 +141,19 @@ export default function Contact() {
                   <label htmlFor="message">Message *</label>
                   <textarea
                     id="message" name="message"
-                    value={form.message} onChange={handleChange}
                     rows={5}
                     placeholder="Tell us about your sourcing needs, quantities, target market, etc."
                     required
                   />
+                  <ValidationError field="message" errors={state.errors} className="form-error" />
                 </div>
 
                 <p className="form-note">
                   * Required fields. We respect your privacy and will never share your information.
                 </p>
 
-                {error && (
-                  <p className="form-error">Something went wrong. Please email us directly at zoiland@gokmulone.com</p>
-                )}
-
-                <button type="submit" className="btn btn-primary contact-form__submit">
-                  Send Inquiry
+                <button type="submit" className="btn btn-primary contact-form__submit" disabled={state.submitting}>
+                  {state.submitting ? 'Sending…' : 'Send Inquiry'}
                 </button>
               </form>
             )}
