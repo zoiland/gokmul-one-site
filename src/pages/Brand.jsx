@@ -1,136 +1,176 @@
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import './Brand.css'
 import Seo from '../components/Seo'
 
-const VALUES = [
-  {
-    icon: '◈',
-    title: 'Traceability',
-    desc: 'Every batch is traceable from field to port. We maintain direct relationships with over 40 certified farms across Korea.',
-  },
-  {
-    icon: '◇',
-    title: 'Heritage',
-    desc: 'We preserve and promote heirloom varieties that have fed Korean families for centuries, before industrialisation erased them.',
-  },
-  {
-    icon: '◉',
-    title: 'Quality First',
-    desc: 'Rigorous multi-stage QC — from field inspection to export lab testing — ensures every shipment meets international standards.',
-  },
-  {
-    icon: '◐',
-    title: 'Partnership',
-    desc: 'We see buyers as long-term partners, not transactions. Flexible MOQs, custom packaging, and dedicated account support.',
-  },
-]
-
-const TIMELINE = [
-  { year: '2022', event: 'Founded with a mission to bring Korea\'s premium whole grains to global wellness consumers.' },
-  { year: '2012', event: 'First international export to Japan. Established HACCP-certified processing facility.' },
-  { year: '2015', event: 'Expanded to Europe and the Middle East. Launched organic product line.' },
-  { year: '2018', event: 'Partnered with 40+ certified farms. Introduced custom OEM/ODM packaging service.' },
-  { year: '2022', event: 'Launched direct-to-retailer programme. Entered North American and Australian markets.' },
-  { year: '2025', event: 'Actively expanding product portfolio and seeking distribution partners worldwide.' },
-]
-
 export default function Brand() {
+  // ─── 스크롤 페이드인 (전역 [data-reveal] 재사용) ───
+  useEffect(() => {
+    const els = document.querySelectorAll('[data-reveal]:not(.is-visible)')
+    const obs = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target) }
+      }),
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    )
+    els.forEach(el => obs.observe(el))
+    return () => obs.disconnect()
+  }, [])
+
+  // ─── 풀블리드 배경 패럴럭스 ───
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const layers = Array.from(document.querySelectorAll('[data-parallax]'))
+    if (!layers.length) return
+    let raf = null
+    const update = () => {
+      raf = null
+      const vh = window.innerHeight
+      for (const el of layers) {
+        const parent = el.parentElement
+        if (!parent) continue
+        const rect = parent.getBoundingClientRect()
+        const offset = rect.top + rect.height / 2 - vh / 2
+        el.style.transform = `translate3d(0, ${(offset * -0.08).toFixed(1)}px, 0)`
+      }
+    }
+    const onScroll = () => { if (raf == null) raf = requestAnimationFrame(update) }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      if (raf) cancelAnimationFrame(raf)
+    }
+  }, [])
+
   return (
     <>
-      <Seo title="Our Story" path="/brand" description="The heritage, traceability and craft behind GOKMUL:ONE — heirloom Korean grains sourced from over 40 certified farms, processed under HACCP standards." />
-      {/* ─── 페이지 헤더 ─── */}
-      <section className="brand-page-hero">
-        <div className="brand-page-hero__bg" style={{ backgroundImage: 'url(/images/company/brand-story-banner.png)' }} />
-        <div className="brand-page-hero__overlay" />
-        <div className="brand-page-hero__content container">
-          <p className="label brand-page-hero__eyebrow">Our Story</p>
-          <h1 className="display brand-title">
-            Grain, Grown<br />with Purpose.
+      <Seo
+        title="Our Story"
+        path="/brand"
+        description="GOKMUL:ONE — Korean Premium Grain Care. Through our Grain-Care Technology we make better grains easier to eat, easier to choose, and easier to enjoy every day."
+      />
+
+      {/* ─── 히어로 ─── */}
+      <section className="brand2-hero">
+        <div
+          className="brand2-hero__bg"
+          data-parallax
+          style={{ backgroundImage: 'url(/images/company/brand-story-banner.png)' }}
+        />
+        <div className="brand2-hero__scrim" />
+        <div className="container brand2-hero__inner">
+          <p className="label brand2-hero__eyebrow" data-reveal>Our Story</p>
+          <h1 className="display brand2-hero__title" data-reveal>
+            Better grains,<br />made easier for<br />everyday life.
           </h1>
-          <p className="brand-hero-desc">
-            We started GOKMUL:ONE because we believed Korea's extraordinary grain
-            heritage deserved a place on the world stage.
+          <span className="brand2-hero__cue" aria-hidden="true" />
+        </div>
+      </section>
+
+      {/* ─── 1. 문제 제기 (중앙 에디토리얼) ─── */}
+      <section className="brand2-statement section">
+        <div className="container brand2-statement__inner">
+          <p className="brand2-statement__lead display" data-reveal>
+            Grains have long been at the heart of healthy eating.
+          </p>
+          <p className="brand2-statement__body" data-reveal>
+            Yet in modern life, they are often too difficult to prepare
+            and too inconvenient to enjoy every day.
           </p>
         </div>
       </section>
 
-      {/* ─── Mission ─── */}
-      <section className="section">
-        <div className="container brand-mission">
-          <div className="brand-mission__text">
-            <p className="label">Mission</p>
-            <h2 className="heading-lg">Premium Korean Whole Grains,<br />Curated for Everyday Wellness</h2>
-            <div className="divider" />
+      {/* ─── 2. 우리의 목적 (풀블리드 + 우측 카드) ─── */}
+      <section className="brand2-scene brand2-scene--right">
+        <div
+          className="brand2-scene__bg"
+          data-parallax
+          style={{ backgroundImage: 'url(/images/company/brand-lifestyle.png)' }}
+        />
+        <div className="brand2-scene__scrim" />
+        <div className="container brand2-scene__inner">
+          <div className="brand2-scene__card" data-reveal>
+            <p className="label brand2-scene__eyebrow">Our Purpose</p>
+            <h2 className="heading-lg">GOKMUL:ONE was created<br />to solve this gap.</h2>
             <p>
-              We bring together Korea's grain heritage, clean ingredients, and
-              balanced nutrition to create convenient wellness foods for today's
-              global consumers.
+              We believe that better grains should be easier to eat,
+              easier to choose, and easier to make part of everyday life.
             </p>
           </div>
-          <div className="brand-mission__image" aria-hidden="true">
-            {/* 장식용 - 실제 이미지 교체 가능 */}
-            <div className="brand-mission__image-placeholder">
-              <svg viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="20" y="20" width="160" height="220" rx="8" fill="none" stroke="currentColor" strokeWidth="1"/>
-                <ellipse cx="100" cy="130" rx="40" ry="60" stroke="currentColor" strokeWidth="1.5"/>
-                <path d="M100 70 C100 50 80 40 80 40 C80 40 100 48 100 70Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-                <path d="M100 70 C100 50 120 40 120 40 C120 40 100 48 100 70Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-                <line x1="100" y1="70" x2="100" y2="190" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3"/>
-              </svg>
-            </div>
+        </div>
+      </section>
+
+      {/* ─── 3. Grain-Care Technology (이미지 + 텍스트 분할) ─── */}
+      <section className="brand2-split section">
+        <div className="container brand2-split__inner">
+          <figure className="brand2-split__media" data-reveal>
+            <img
+              src="/images/company/ceramic-shot.png"
+              alt="A GOKMUL:ONE grain blend prepared at its optimal texture and flavour"
+              loading="lazy"
+            />
+          </figure>
+          <div className="brand2-split__text" data-reveal>
+            <p className="label">Grain-Care Technology</p>
+            <h2 className="heading-lg">Studied by grain,<br />prepared with care.</h2>
+            <div className="divider" />
+            <p>
+              Through our Grain-Care Technology, we study the natural properties
+              of each grain and prepare every blend at its optimal texture and flavour.
+            </p>
+            <p>
+              The result is a new grain-based food experience that preserves the
+              satisfaction of a real, chewable meal — while adding the convenience
+              modern consumers need.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ─── Values ─── */}
-      <section className="section brand-values">
-        <div className="container">
-          <div className="section-header-centered">
-            <p className="label">What We Stand For</p>
-            <h2 className="heading-lg">Our Core Values</h2>
-            <div className="divider" style={{ margin: '1.25rem auto' }} />
-          </div>
-          <div className="grid-2">
-            {VALUES.map(({ icon, title, desc }) => (
-              <div key={title} className="value-card">
-                <span className="value-card__icon">{icon}</span>
-                <h3 className="value-card__title">{title}</h3>
-                <p className="value-card__desc">{desc}</p>
-              </div>
-            ))}
+      {/* ─── 4. Korean Premium Grain Care (풀블리드 다크 · 중앙) ─── */}
+      <section className="brand2-scene brand2-scene--center brand2-scene--dark">
+        <div
+          className="brand2-scene__bg"
+          data-parallax
+          style={{ backgroundImage: 'url(/images/hero/banner-002.png)' }}
+        />
+        <div className="brand2-scene__scrim brand2-scene__scrim--strong" />
+        <div className="container brand2-scene__inner brand2-scene__inner--center">
+          <div className="brand2-scene__card brand2-scene__card--plain" data-reveal>
+            <p className="label brand2-scene__eyebrow">Korean Premium Grain Care</p>
+            <h2 className="heading-lg">More than a convenient meal.</h2>
+            <p>
+              GOKMUL:ONE is more than a convenient meal option.
+              It is Korean Premium Grain Care — designed for everyday eating,
+              and made for better nutrition.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ─── Timeline ─── */}
-      <section className="section brand-timeline">
-        <div className="container">
-          <p className="label">History</p>
-          <h2 className="heading-lg">Our Journey</h2>
-          <div className="divider" />
-          <ol className="timeline">
-            {TIMELINE.map(({ year, event }) => (
-              <li key={year} className="timeline__item">
-                <span className="timeline__year">{year}</span>
-                <div className="timeline__dot" />
-                <p className="timeline__event">{event}</p>
-              </li>
-            ))}
-          </ol>
+      {/* ─── 마무리: 태그라인 + CTA ─── */}
+      <section className="brand2-close section">
+        <div className="container brand2-close__inner">
+          <p className="label" data-reveal>GOKMUL:ONE</p>
+          <p className="brand2-close__tagline display" data-reveal>
+            Better grains, made easier for everyday life.
+          </p>
+          <div className="brand2-close__cta" data-reveal>
+            <Link to="/products" className="btn btn-primary">Explore Products</Link>
+            <Link to="/contact" className="btn btn-outline">Partner With Us</Link>
+          </div>
         </div>
       </section>
 
-      {/* ─── 인증 섹션 ─── */}
-      <section className="section-sm brand-certs">
-        <div className="container">
-          <p className="label" style={{ textAlign: 'center', marginBottom: '2rem' }}>Certifications & Compliance</p>
-          <div className="brand-certs__grid">
-            {['HACCP', 'ISO 22000', 'Organic (MAFRA)', 'Non-GMO', 'Halal', 'Gluten-Free'].map(cert => (
-              <div key={cert} className="cert-item">
-                <span className="cert-item__icon">✓</span>
-                <span>{cert}</span>
-              </div>
-            ))}
-          </div>
+      {/* ─── 신뢰 스트립 ─── */}
+      <section className="brand2-trust">
+        <div className="container brand2-trust__inner" data-reveal>
+          {['HACCP', 'ISO 22000', 'Non-GMO', 'Organic (MAFRA)', 'Halal', 'Gluten-Free'].map(c => (
+            <span key={c} className="brand2-trust__item">{c}</span>
+          ))}
         </div>
       </section>
     </>
