@@ -88,7 +88,7 @@ export default function Brand() {
         <div
           className="brand2-scene__bg"
           data-parallax
-          style={{ backgroundImage: 'url(/images/company/brand-lifestyle.png)' }}
+          style={{ backgroundImage: 'url(/images/company/ceramic-shot.png)' }}
         />
         <div className="brand2-scene__scrim" />
         <div className="container brand2-scene__inner">
@@ -108,8 +108,8 @@ export default function Brand() {
         <div className="container brand2-split__inner">
           <figure className="brand2-split__media" data-reveal>
             <img
-              src="/images/company/ceramic-shot.png"
-              alt="A GOKMUL:ONE grain blend prepared at its optimal texture and flavour"
+              src="/images/company/grain-care-technology.png"
+              alt="GOKMUL:ONE Grain-Care Technology — each blend prepared at its optimal texture and flavour"
               loading="lazy"
             />
           </figure>
