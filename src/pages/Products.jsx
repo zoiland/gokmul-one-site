@@ -62,7 +62,7 @@ export default function Products() {
             },
             {
               title: 'Certifications & Compliance',
-              body: 'All products are HACCP certified. Organic, Non-GMO, Halal, and Gluten-Free options available depending on variety.',
+              body: 'All products are HACCP certified and Non-GMO. Halal and Gluten-Free options available depending on variety.',
             },
           ].map(({ title, body }) => (
             <div key={title} className="products-info__card">

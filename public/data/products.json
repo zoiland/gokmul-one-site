@@ -9,7 +9,10 @@
       "description": "A nutritious blend of tender chickpeas and rolled oats, rich in plant-based protein and soluble fibre. Ideal for health-forward food formulations and retail.",
       "weight": "70g",
       "origin": "Korea",
-      "certifications": ["HACCP", "Non-GMO"],
+      "certifications": [
+        "HACCP",
+        "Non-GMO"
+      ],
       "category": "grain",
       "featured": true,
       "image": "/images/products/product-chickpea-oat.png",
@@ -31,7 +34,10 @@
       "description": "Korean black soybeans paired with green lentils — a premium legume blend packed with anthocyanins, protein, and iron for functional food applications.",
       "weight": "70g",
       "origin": "Korea",
-      "certifications": ["HACCP", "Organic"],
+      "certifications": [
+        "HACCP",
+        "Non-GMO"
+      ],
       "category": "grain",
       "featured": true,
       "image": "/images/products/product-black-soybean-lentil.png",
@@ -53,7 +59,10 @@
       "description": "Whole-grain farro combined with earthy fava beans for a hearty, fibre-dense blend. A versatile ingredient for soups, salads, and grain bowl applications.",
       "weight": "70g",
       "origin": "Korea",
-      "certifications": ["HACCP"],
+      "certifications": [
+        "HACCP",
+        "Non-GMO"
+      ],
       "category": "grain",
       "featured": true,
       "image": "/images/products/product-farro-fava-bean.png",
@@ -75,7 +84,10 @@
       "description": "Our signature Chickpeas & Oats blend in a convenient 110g premium care format. Perfectly portioned for on-the-go nutrition without compromising quality.",
       "weight": "110g",
       "origin": "Korea",
-      "certifications": ["HACCP", "Non-GMO"],
+      "certifications": [
+        "HACCP",
+        "Non-GMO"
+      ],
       "category": "premium",
       "featured": false,
       "image": "/images/products/premium-chickpea-oat-110g.png",
@@ -97,7 +109,10 @@
       "description": "Premium 110g single-serve pack of our Black Soybean & Lentil blend — rich in anthocyanins and plant protein, crafted for health-focused retail and gifting.",
       "weight": "110g",
       "origin": "Korea",
-      "certifications": ["HACCP", "Organic"],
+      "certifications": [
+        "HACCP",
+        "Non-GMO"
+      ],
       "category": "premium",
       "featured": false,
       "image": "/images/products/premium-black-soybean-lentil-110g.png",
@@ -119,7 +134,10 @@
       "description": "Ancient Khorasan wheat and whole farro in a 110g premium care edition. A rare heritage grain combination with a rich, nutty flavour and superior nutritional profile.",
       "weight": "110g",
       "origin": "Korea",
-      "certifications": ["HACCP"],
+      "certifications": [
+        "HACCP",
+        "Non-GMO"
+      ],
       "category": "premium",
       "featured": false,
       "image": "/images/products/premium-khorasan-farro-110g.png",
