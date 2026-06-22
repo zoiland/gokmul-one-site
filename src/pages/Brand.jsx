@@ -1,4 +1,5 @@
 import './Brand.css'
+import Seo from '../components/Seo'
 
 const VALUES = [
   {
@@ -35,6 +36,7 @@ const TIMELINE = [
 export default function Brand() {
   return (
     <>
+      <Seo title="Our Story" path="/brand" description="The heritage, traceability and craft behind GOKMUL:ONE — heirloom Korean grains sourced from over 40 certified farms, processed under HACCP standards." />
       {/* ─── 페이지 헤더 ─── */}
       <section className="brand-page-hero">
         <div className="brand-page-hero__bg" style={{ backgroundImage: 'url(/images/company/brand-story-banner.png)' }} />

@@ -1,5 +1,6 @@
 import { useForm, ValidationError } from '@formspree/react'
 import './Contact.css'
+import Seo from '../components/Seo'
 
 const INQUIRY_TYPES = [
   'Product Inquiry',
@@ -14,6 +15,7 @@ export default function Contact() {
 
   return (
     <>
+      <Seo title="Contact" path="/contact" description="Contact GOKMUL:ONE for product inquiries, pricing & MOQ, OEM / custom packaging and global distribution partnerships." />
       {/* ─── 페이지 헤더 ─── */}
       <section className="page-hero">
         <div className="container">
@@ -34,9 +36,9 @@ export default function Contact() {
             <div className="contact-info__block">
               <p className="label">Head Office</p>
               <address>
-                <p>곡물:원 (GOKMUL:ONE)</p>
-                <p>CEO: 김강</p>
-                <p>511ho, 5F, Annex Bldg. A,<br />12 Gaetbeol-ro, Yeonsu-gu,<br />Incheon 21999, Republic of Korea</p>
+                <p>GOKMUL:ONE</p>
+                <p>CEO: Kim Kang</p>
+                <p>511, 5F, Annex Building A,<br />12 Gaetbeol-ro, Yeonsu-gu,<br />Incheon 21999, Republic of Korea</p>
               </address>
             </div>
 
@@ -53,7 +55,7 @@ export default function Contact() {
                 </li>
                 <li>
                   <span>Phone</span>
-                  <a href="tel:05070443003">0507-0443-0003</a>
+                  <a href="tel:05070443003">+82-507-0443-0003</a>
                 </li>
               </ul>
             </div>
@@ -61,8 +63,8 @@ export default function Contact() {
             <div className="contact-info__block">
               <p className="label">Business Info</p>
               <ul>
-                <li><span>사업자등록번호</span><span>638-13-02161</span></li>
-                <li><span>통신판매업번호</span><span>2024-인천연수구-0854</span></li>
+                <li><span>Business Reg. No.</span><span>638-13-02161</span></li>
+                <li><span>E-commerce Reg. No.</span><span>2024-Incheon Yeonsu-0854</span></li>
               </ul>
             </div>
 

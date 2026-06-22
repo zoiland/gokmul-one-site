@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import './Home.css'
+import Seo from '../components/Seo'
 
 const SCENES = [
   {
@@ -87,7 +88,7 @@ export default function Home() {
   const statsRef       = useRef(null)
 
   useEffect(() => {
-    fetch('./data/products.json')
+    fetch('/data/products.json')
       .then(r => r.json())
       .then(d => setProducts(d.products.filter(p => p.featured)))
       .catch(console.error)
@@ -155,6 +156,7 @@ export default function Home() {
 
   return (
     <>
+      <Seo path="/" />
       {/* ─── Hero: sticky 컨테이너 (400vh) ─── */}
       {/* 100vh per scene of scroll + 100vh natural exit to stats */}
       <div className="hero-block" ref={heroRef}>

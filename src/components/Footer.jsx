@@ -34,7 +34,7 @@ export default function Footer() {
             <li><a href="mailto:zoiland@gokmulone.com">zoiland@gokmulone.com</a></li>
             <li><a href="mailto:river@gokmulone.com">river@gokmulone.com</a></li>
             <li><a href="tel:05070443003">0507-0443-0003</a></li>
-            <li>인천광역시 연수구 갯벌로 12<br />별관 A동 5층 511호 (21999)</li>
+            <li>511, 5F, Annex Building A,<br />12 Gaetbeol-ro, Yeonsu-gu,<br />Incheon 21999, Republic of Korea</li>
           </ul>
         </div>
       </div>

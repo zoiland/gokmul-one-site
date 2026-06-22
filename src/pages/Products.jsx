@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard'
 import './Products.css'
+import Seo from '../components/Seo'
 
 export default function Products() {
   const [products, setProducts] = useState([])
   const [loading,  setLoading]  = useState(true)
 
   useEffect(() => {
-    fetch('./data/products.json')
+    fetch('/data/products.json')
       .then(r => r.json())
       .then(d => { setProducts(d.products); setLoading(false) })
       .catch(() => setLoading(false))
@@ -15,6 +16,7 @@ export default function Products() {
 
   return (
     <>
+      <Seo title="Products" path="/products" description="Browse the GOKMUL:ONE catalogue — Grain TokTok chickpeas & oats, black soybean & lentil, farro & fava bean, and Premium Care grains. HACCP & Non-GMO certified, ready for export." />
       {/* ─── 페이지 헤더 ─── */}
       <section className="page-hero">
         <div className="container">

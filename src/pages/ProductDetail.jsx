@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import './ProductDetail.css'
+import Seo from '../components/Seo'
 
 export default function ProductDetail() {
   const { slug } = useParams()
@@ -31,6 +32,7 @@ export default function ProductDetail() {
   const { name, koreanName, tagline, description, weight, origin, certifications, image, gallery } = product
   return (
     <>
+      <Seo title={name} path={`/products/${slug}`} description={`${tagline} — ${description}`.slice(0, 300)} image={image} type="product" />
       {/* ─── 뒤로 가기 ─── */}
       <div className="pdp-back">
         <div className="container">
