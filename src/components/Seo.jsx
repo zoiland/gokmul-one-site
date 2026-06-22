@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 
 const SITE = 'https://www.gokmulone.com'
 const DEFAULT_DESCRIPTION =
-  'GOKMUL:ONE supplies premium Korean grain products — heirloom and whole grains, HACCP and Non-GMO certified — to global buyers, distributors and food manufacturers.'
+  'GOKMUL:ONE supplies premium Korean grain products — HACCP-certified, clean-label, ready-to-eat whole grains made with water and grains only — to global buyers, distributors and food manufacturers.'
 const DEFAULT_IMAGE = `${SITE}/images/og-preview.png`
 
 /**

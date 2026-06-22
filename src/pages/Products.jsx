@@ -16,7 +16,7 @@ export default function Products() {
 
   return (
     <>
-      <Seo title="Products" path="/products" description="Browse the GOKMUL:ONE catalogue — Grain TokTok chickpeas & oats, black soybean & lentil, farro & fava bean, and Premium Care grains. HACCP & Non-GMO certified, ready for export." />
+      <Seo title="Products" path="/products" description="Browse the GOKMUL:ONE catalogue — Grain TokTok chickpeas & oats, black soybean & lentil, farro & fava bean, and Premium Care grains. HACCP-certified, clean label, ready to eat — made with water and grains only." />
       {/* ─── 페이지 헤더 ─── */}
       <section className="page-hero">
         <div className="container">
