@@ -61,8 +61,8 @@ export default function Products() {
               body: 'We offer private-label packaging, custom weight options, and OEM grain blend formulation for retail and food-service clients.',
             },
             {
-              title: 'Certifications & Compliance',
-              body: 'All products are HACCP certified and Non-GMO. Halal and Gluten-Free options available depending on variety.',
+              title: 'Clean Label & Quality',
+              body: 'HACCP certified and made with water and grains only — no preservatives, no additives. Gently steamed, clean label, and ready to eat.',
             },
           ].map(({ title, body }) => (
             <div key={title} className="products-info__card">

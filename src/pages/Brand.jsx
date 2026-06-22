@@ -168,7 +168,7 @@ export default function Brand() {
       {/* ─── 신뢰 스트립 ─── */}
       <section className="brand2-trust">
         <div className="container brand2-trust__inner" data-reveal>
-          {['HACCP', 'ISO 22000', 'Non-GMO', 'Halal', 'Gluten-Free'].map(c => (
+          {['HACCP', 'No Preservatives', 'No Additives', 'Water & Grains Only', 'Steamed Grains', 'Clean Label', 'Ready to Eat'].map(c => (
             <span key={c} className="brand2-trust__item">{c}</span>
           ))}
         </div>
