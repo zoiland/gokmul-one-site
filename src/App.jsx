@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Brand from './pages/Brand'
 import Products from './pages/Products'
 import ProductDetail from './pages/ProductDetail'
+import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/brand" element={<Brand />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:slug" element={<ProductDetail />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
