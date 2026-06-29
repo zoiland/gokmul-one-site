@@ -49,13 +49,6 @@ const ORIGINS = [
   },
 ]
 
-const STATS = [
-  { value: '15+', label: 'Years of Expertise' },
-  { value: '20+', label: 'Countries Exported' },
-  { value: '100%', label: 'HACCP Certified' },
-  { value: '30+', label: 'Product Varieties' },
-]
-
 // 스크롤 진행도 p(0→1) 에서 씬 i 의 opacity 계산
 // FADE: 씬 경계 부근에서 crossfade 가 일어나는 폭 (0~1 단위)
 function getSceneOpacity(i, p, n = SCENES.length, FADE = 0.09) {
@@ -80,12 +73,10 @@ function getSceneOpacity(i, p, n = SCENES.length, FADE = 0.09) {
 export default function Home() {
   const [products, setProducts]       = useState([])
   const [currentScene, setCurrentScene] = useState(-1)
-  const [statsVisible, setStatsVisible] = useState(false)
 
   const heroRef        = useRef(null)
   const layerRefs      = useRef([])   // 이미지 레이어 DOM refs (직접 opacity 조작)
   const currentSceneRef = useRef(-1)
-  const statsRef       = useRef(null)
 
   useEffect(() => {
     fetch('/data/products.json')
@@ -128,17 +119,6 @@ export default function Home() {
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll() // 마운트 시 즉시 실행
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  // Stats bar 등장
-  useEffect(() => {
-    if (!statsRef.current) return
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setStatsVisible(true); obs.disconnect() } },
-      { threshold: 0.4 }
-    )
-    obs.observe(statsRef.current)
-    return () => obs.disconnect()
   }, [])
 
   // 나머지 콘텐츠 scroll reveal
@@ -208,22 +188,6 @@ export default function Home() {
 
         </div>
       </div>
-
-      {/* ─── Stats ─── */}
-      <section className="home-stats" ref={statsRef}>
-        <div className="container home-stats__grid">
-          {STATS.map(({ value, label }, i) => (
-            <div
-              key={i}
-              className={`home-stat${statsVisible ? ' home-stat--visible' : ''}`}
-              style={{ '--delay': `${i * 0.1}s` }}
-            >
-              <span className="home-stat__value">{value}</span>
-              <span className="home-stat__label">{label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* ─── Origin Tiles ─── */}
       <section className="origins section">
