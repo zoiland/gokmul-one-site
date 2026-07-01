@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+import { Head } from 'vite-react-ssg'
 
 const SITE = 'https://www.gokmulone.com'
 const DEFAULT_DESCRIPTION =
@@ -7,7 +7,7 @@ const DEFAULT_IMAGE = `${SITE}/images/og-preview.png`
 
 /**
  * Per-page SEO tags (title, description, canonical, Open Graph, Twitter).
- * Overrides the static defaults in index.html for each route.
+ * <Head> is prerendered into the static HTML by vite-react-ssg.
  */
 export default function Seo({
   title,
@@ -23,8 +23,7 @@ export default function Seo({
   const imageUrl = image.startsWith('http') ? image : `${SITE}${image}`
 
   return (
-    <Helmet>
-      <html lang="en" />
+    <Head>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
@@ -39,6 +38,6 @@ export default function Seo({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
-    </Helmet>
+    </Head>
   )
 }

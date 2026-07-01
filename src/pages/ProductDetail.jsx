@@ -1,33 +1,13 @@
-import { useEffect, useState } from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link, Navigate } from 'react-router-dom'
 import './ProductDetail.css'
 import Seo from '../components/Seo'
+import productsData from '../data/products.json'
 
 export default function ProductDetail() {
   const { slug } = useParams()
-  const navigate  = useNavigate()
-  const [product, setProduct] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const product = productsData.products.find(p => p.slug === slug)
 
-  useEffect(() => {
-    fetch('/data/products.json')
-      .then(r => r.json())
-      .then(d => {
-        const found = d.products.find(p => p.slug === slug)
-        if (!found) { navigate('/products', { replace: true }); return }
-        setProduct(found)
-        setLoading(false)
-      })
-      .catch(() => setLoading(false))
-  }, [slug, navigate])
-
-  if (loading) return (
-    <div className="pdp-loading">
-      <div className="pdp-loading__spinner" />
-    </div>
-  )
-
-  if (!product) return null
+  if (!product) return <Navigate to="/products" replace />
 
   const { name, koreanName, tagline, description, weight, origin, certifications, image, gallery } = product
   return (

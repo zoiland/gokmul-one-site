@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
 import './Home.css'
 import Seo from '../components/Seo'
+import productsData from '../data/products.json'
+
+const FEATURED = productsData.products.filter(p => p.featured)
 
 const SCENES = [
   {
@@ -71,19 +74,12 @@ function getSceneOpacity(i, p, n = SCENES.length, FADE = 0.09) {
 }
 
 export default function Home() {
-  const [products, setProducts]       = useState([])
+  const products = FEATURED
   const [currentScene, setCurrentScene] = useState(-1)
 
   const heroRef        = useRef(null)
   const layerRefs      = useRef([])   // 이미지 레이어 DOM refs (직접 opacity 조작)
   const currentSceneRef = useRef(-1)
-
-  useEffect(() => {
-    fetch('/data/products.json')
-      .then(r => r.json())
-      .then(d => setProducts(d.products.filter(p => p.featured)))
-      .catch(console.error)
-  }, [])
 
   // 첫 씬 텍스트 fade-in
   useEffect(() => {

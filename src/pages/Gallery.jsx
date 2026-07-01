@@ -1,17 +1,11 @@
 import { useEffect, useState, useCallback } from 'react'
 import './Gallery.css'
 import Seo from '../components/Seo'
+import galleryData from '../data/gallery.json'
 
 export default function Gallery() {
-  const [images, setImages] = useState([])
+  const images = galleryData.images
   const [active, setActive] = useState(null) // 라이트박스로 열린 이미지 index (null = 닫힘)
-
-  useEffect(() => {
-    fetch('/data/gallery.json')
-      .then(r => r.json())
-      .then(d => setImages(d.images || []))
-      .catch(() => {})
-  }, [])
 
   // 스크롤 페이드인
   useEffect(() => {

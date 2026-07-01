@@ -1,13 +1,6 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { HelmetProvider } from 'react-helmet-async'
+import { ViteReactSSG } from 'vite-react-ssg'
+import { routes } from './App'
 import './index.css'
-import App from './App.jsx'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </StrictMode>,
-)
+// vite-react-ssg 진입점: 각 라우트를 빌드 시 정적 HTML로 프리렌더한다.
+export const createRoot = ViteReactSSG({ routes })

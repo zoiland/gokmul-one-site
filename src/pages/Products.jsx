@@ -1,18 +1,10 @@
-import { useEffect, useState } from 'react'
 import ProductCard from '../components/ProductCard'
 import './Products.css'
 import Seo from '../components/Seo'
+import productsData from '../data/products.json'
 
 export default function Products() {
-  const [products, setProducts] = useState([])
-  const [loading,  setLoading]  = useState(true)
-
-  useEffect(() => {
-    fetch('/data/products.json')
-      .then(r => r.json())
-      .then(d => { setProducts(d.products); setLoading(false) })
-      .catch(() => setLoading(false))
-  }, [])
+  const products = productsData.products
 
   return (
     <>
@@ -32,19 +24,10 @@ export default function Products() {
       {/* ─── 제품 그리드 ─── */}
       <section className="section">
         <div className="container">
-          {loading ? (
-            <div className="products-loading">
-              <div className="products-loading__spinner" />
-              <p>Loading products…</p>
-            </div>
-          ) : (
-            <>
-              <p className="products-count">{products.length} products</p>
-              <div className="grid-3">
-                {products.map(p => <ProductCard key={p.id} product={p} />)}
-              </div>
-            </>
-          )}
+          <p className="products-count">{products.length} products</p>
+          <div className="grid-3">
+            {products.map(p => <ProductCard key={p.id} product={p} />)}
+          </div>
         </div>
       </section>
 
