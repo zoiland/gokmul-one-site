@@ -42,7 +42,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container">
           <p>© {new Date().getFullYear()} GOKMUL:ONE. All rights reserved.</p>
-          <p>곡물:원 | 대표 김강 | 사업자등록번호: 638-13-02161 | 통신판매업번호: 2024-인천연수구-0854</p>
+          <p>GOKMUL:ONE | CEO: Kim Kang | Business Reg. No.: 638-13-02161 | E-commerce Reg. No.: 2024-Incheon Yeonsu-0854</p>
         </div>
       </div>
     </footer>
