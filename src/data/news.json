@@ -1,0 +1,16 @@
+{
+  "articles": [
+    {
+      "slug": "sample-post",
+      "title": "Sample News Post — replace me",
+      "date": "2026-07-01",
+      "excerpt": "This is a placeholder article. Replace it with your real Smartstore stories (English summary + link).",
+      "thumbnail": "/images/company/ceramic-shot.png",
+      "smartstoreUrl": "https://smartstore.naver.com/gokmulone/shoppingstory/list",
+      "body": [
+        "This is a placeholder body paragraph. Once you send your Smartstore post content, this becomes the full English article.",
+        "Each article shows the full text here (good for SEO) and links out to the original Korean post on Naver Smartstore."
+      ]
+    }
+  ]
+}

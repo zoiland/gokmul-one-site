@@ -28,6 +28,7 @@ export default function Footer() {
             <li><NavLink to="/brand">Brand</NavLink></li>
             <li><NavLink to="/products">Products</NavLink></li>
             <li><NavLink to="/gallery">Gallery</NavLink></li>
+            <li><NavLink to="/news">News</NavLink></li>
             <li><NavLink to="/contact">Contact</NavLink></li>
           </ul>
         </nav>

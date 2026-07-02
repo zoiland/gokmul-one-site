@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ProductCard from '../components/ProductCard'
+import NewsCard from '../components/NewsCard'
 import './Home.css'
 import Seo from '../components/Seo'
 import productsData from '../data/products.json'
+import newsData from '../data/news.json'
 
 const FEATURED = productsData.products.filter(p => p.featured)
+const LATEST_NEWS = [...newsData.articles].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3)
 
 const SCENES = [
   {
@@ -232,6 +235,28 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ─── Latest News ─── */}
+      {LATEST_NEWS.length > 0 && (
+        <section className="home-featured section">
+          <div className="container">
+            <div className="home-featured__header" data-reveal>
+              <div>
+                <p className="label">Newsroom</p>
+                <h2 className="heading-lg">Latest News</h2>
+              </div>
+              <Link to="/news" className="btn btn-outline">View All</Link>
+            </div>
+            <div className="home-featured__grid">
+              {LATEST_NEWS.map((a, i) => (
+                <div key={a.slug} data-reveal style={{ '--delay': `${i * 0.1}s` }}>
+                  <NewsCard article={a} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ─── Brand Statement ─── */}
       <section className="brand-statement">

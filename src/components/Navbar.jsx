@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { to: '/brand',    label: 'Brand'    },
   { to: '/products', label: 'Products' },
   { to: '/gallery',  label: 'Gallery'  },
+  { to: '/news',     label: 'News'     },
   { to: '/contact',  label: 'Contact'  },
 ]
 

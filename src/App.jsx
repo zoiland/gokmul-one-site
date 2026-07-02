@@ -4,8 +4,11 @@ import Brand from './pages/Brand'
 import Products from './pages/Products'
 import ProductDetail from './pages/ProductDetail'
 import Gallery from './pages/Gallery'
+import News from './pages/News'
+import NewsDetail from './pages/NewsDetail'
 import Contact from './pages/Contact'
 import productsData from './data/products.json'
+import newsData from './data/news.json'
 
 export const routes = [
   {
@@ -22,6 +25,12 @@ export const routes = [
         getStaticPaths: () => productsData.products.map(p => `products/${p.slug}`),
       },
       { path: 'gallery', element: <Gallery /> },
+      { path: 'news', element: <News /> },
+      {
+        path: 'news/:slug',
+        element: <NewsDetail />,
+        getStaticPaths: () => newsData.articles.map(a => `news/${a.slug}`),
+      },
       { path: 'contact', element: <Contact /> },
     ],
   },
