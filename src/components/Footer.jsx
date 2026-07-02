@@ -16,6 +16,9 @@ export default function Footer() {
           <p className="footer__tagline">
             Premium Korean grain products<br />for global markets.
           </p>
+          <p className="footer__tagline footer__tagline-ko">
+            곡물원 · 곡물톡톡 — 바로 먹는 프리미엄 곡물
+          </p>
         </div>
 
         <nav className="footer__nav" aria-label="Footer navigation">
@@ -24,6 +27,7 @@ export default function Footer() {
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/brand">Brand</NavLink></li>
             <li><NavLink to="/products">Products</NavLink></li>
+            <li><NavLink to="/gallery">Gallery</NavLink></li>
             <li><NavLink to="/contact">Contact</NavLink></li>
           </ul>
         </nav>
@@ -42,7 +46,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container">
           <p>© {new Date().getFullYear()} GOKMUL:ONE. All rights reserved.</p>
-          <p>GOKMUL:ONE | CEO: Kim Kang | Business Reg. No.: 638-13-02161 | E-commerce Reg. No.: 2024-Incheon Yeonsu-0854</p>
+          <p>곡물원 (GOKMUL:ONE) | CEO: Kim Kang | Business Reg. No.: 638-13-02161 | E-commerce Reg. No.: 2024-Incheon Yeonsu-0854</p>
         </div>
       </div>
     </footer>

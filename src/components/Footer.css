@@ -106,3 +106,5 @@
 @media (max-width: 480px) {
   .footer__inner { grid-template-columns: 1fr; }
 }
+
+.footer__tagline-ko { font-size: .8rem; opacity: .55; margin-top: .45rem; letter-spacing: .01em; }
