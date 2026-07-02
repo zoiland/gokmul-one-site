@@ -8,7 +8,7 @@ import productsData from '../data/products.json'
 import newsData from '../data/news.json'
 
 const FEATURED = productsData.products.filter(p => p.featured)
-const LATEST_NEWS = [...newsData.articles].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3)
+const LATEST_NEWS = [...newsData.articles].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0)).slice(0, 3)
 
 const SCENES = [
   {

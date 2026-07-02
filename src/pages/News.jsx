@@ -3,7 +3,7 @@ import Seo from '../components/Seo'
 import NewsCard from '../components/NewsCard'
 import newsData from '../data/news.json'
 
-const ARTICLES = [...newsData.articles].sort((a, b) => (a.date < b.date ? 1 : -1))
+const ARTICLES = [...newsData.articles].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
 
 export default function News() {
   return (
