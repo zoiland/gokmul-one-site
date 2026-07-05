@@ -51,7 +51,7 @@ const ORIGINS = [
     bg: '/images/department-store/shinsegae-gangnam.png',
     tag: 'Premium Retail',
     title: 'Shinsegae Gangnam',
-    desc: 'The largest department store in the world, serving Seoul\'s most discerning shoppers.',
+    desc: 'Korea\'s top-grossing department store, serving Seoul\'s most discerning shoppers.',
   },
 ]
 

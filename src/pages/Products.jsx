@@ -15,8 +15,8 @@ export default function Products() {
           <p className="label">Our Range</p>
           <h1 className="display products-title">Product Catalogue</h1>
           <p className="products-hero-desc">
-            Traceable, certified, and sourced directly from Korean farms.
-            Each product reflects our commitment to quality and heritage.
+            Clean-label, ready-to-eat grain products made with water and grains only.
+            Each product reflects our commitment to quality and care.
           </p>
         </div>
       </section>
