@@ -58,7 +58,7 @@ export default function Brand() {
         <div
           className="brand2-hero__bg"
           data-parallax
-          style={{ backgroundImage: 'url(/images/company/brand-story-banner.png)' }}
+          style={{ backgroundImage: 'url(/images/company/brand-story-banner.webp)' }}
         />
         <div className="brand2-hero__scrim" />
         <div className="container brand2-hero__inner">
@@ -88,7 +88,7 @@ export default function Brand() {
         <div
           className="brand2-scene__bg"
           data-parallax
-          style={{ backgroundImage: 'url(/images/company/ceramic-shot.png)' }}
+          style={{ backgroundImage: 'url(/images/company/ceramic-shot.webp)' }}
         />
         <div className="brand2-scene__scrim" />
         <div className="container brand2-scene__inner">
@@ -108,7 +108,7 @@ export default function Brand() {
         <div className="container brand2-split__inner">
           <figure className="brand2-split__media" data-reveal>
             <img
-              src="/images/company/grain-care-technology.png"
+              src="/images/company/grain-care-technology.webp"
               alt="GOKMUL:ONE Grain-Care Technology — each blend prepared at its optimal texture and flavour"
               loading="lazy"
             />
@@ -135,7 +135,7 @@ export default function Brand() {
         <div
           className="brand2-scene__bg"
           data-parallax
-          style={{ backgroundImage: 'url(/images/hero/banner-002.png)' }}
+          style={{ backgroundImage: 'url(/images/hero/banner-002.webp)' }}
         />
         <div className="brand2-scene__scrim brand2-scene__scrim--strong" />
         <div className="container brand2-scene__inner brand2-scene__inner--center">

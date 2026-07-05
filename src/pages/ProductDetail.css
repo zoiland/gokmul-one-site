@@ -97,6 +97,17 @@
 }
 .pdp-info__meta dd { font-size: .9rem; color: var(--color-text); }
 
+.pdp-info__meta--full { grid-column: 1 / -1; }
+
+.pdp-info__spec-group { display: flex; flex-direction: column; gap: .45rem; }
+.pdp-info__spec-label {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
 .pdp-info__certs {
   display: flex;
   flex-wrap: wrap;

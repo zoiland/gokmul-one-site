@@ -12,21 +12,21 @@ const LATEST_NEWS = [...newsData.articles].sort((a, b) => (a.date < b.date ? 1 :
 
 const SCENES = [
   {
-    image: '/images/hero/banner-001.png',
+    image: '/images/hero/banner-001.webp',
     eyebrow: 'Premium Korean Grain Products',
     headline: ["From Korea's Soil,", "To the World's Table."],
     cta: { label: 'Explore Products', to: '/products' },
     ctaAlt: { label: 'Our Story', to: '/brand' },
   },
   {
-    image: '/images/hero/banner-002.png',
+    image: '/images/hero/banner-002.webp',
     eyebrow: 'Heritage & Craft',
     headline: ['Rooted in Tradition,', 'Driven by Quality.'],
     cta: null,
     ctaAlt: null,
   },
   {
-    image: '/images/hero/banner-003.png',
+    image: '/images/hero/banner-003.webp',
     eyebrow: 'Premium Care Collection',
     headline: ['Ancient Grains,', 'Modern Standards.'],
     cta: { label: 'View Products', to: '/products' },
@@ -36,19 +36,19 @@ const SCENES = [
 
 const ORIGINS = [
   {
-    bg: '/images/department-store/house-of-shinsegae.png',
+    bg: '/images/department-store/house-of-shinsegae.webp',
     tag: 'Wellness Market',
     title: 'House of Shinsegae',
     desc: 'Cheongdam Twelve Market — Korea\'s premier curated wellness destination.',
   },
   {
-    bg: '/images/department-store/shinsegae-main.png',
+    bg: '/images/department-store/shinsegae-main.webp',
     tag: 'Premium Retail',
     title: 'Shinsegae Main Branch',
     desc: 'Myeongdong flagship — Korea\'s most prestigious department store since 1930.',
   },
   {
-    bg: '/images/department-store/shinsegae-gangnam.png',
+    bg: '/images/department-store/shinsegae-gangnam.webp',
     tag: 'Premium Retail',
     title: 'Shinsegae Gangnam',
     desc: 'Korea\'s top-grossing department store, serving Seoul\'s most discerning shoppers.',
@@ -260,18 +260,18 @@ export default function Home() {
 
       {/* ─── Brand Statement ─── */}
       <section className="brand-statement">
-        <div className="brand-statement__bg" style={{ backgroundImage: 'url(/images/company/ceramic-shot.png)' }} />
+        <div className="brand-statement__bg" style={{ backgroundImage: 'url(/images/company/ceramic-shot.webp)' }} />
         <div className="brand-statement__inner container">
           <p className="brand-statement__eyebrow label" data-reveal>Since 2022</p>
           <h2 className="brand-statement__headline display" data-reveal>
-            Premium Korean<br /><em>Whole Grains,</em>
+            Premium Korean Whole Grains,<em>Curated for Everyday Wellness</em>
           </h2>
           <p className="brand-statement__sub" data-reveal>
             We bring together Korea's grain heritage, clean ingredients, and balanced nutrition<br />
             to create convenient wellness foods for today's global consumers.
           </p>
           <div data-reveal>
-            <a href="/documents/gokmul-one-product-catalog.pdf" download className="btn btn-outline-light">View Product Catalog</a>
+            <a href="/documents/gokmul-one-product-catalog.pdf" download className="btn btn-outline-light">Product Catalog (PDF, 13 MB)</a>
           </div>
         </div>
       </section>

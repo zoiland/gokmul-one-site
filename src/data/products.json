@@ -8,27 +8,38 @@
       "tagline": "Plant protein meets whole-grain goodness",
       "description": "A nutritious blend of tender chickpeas and rolled oats, rich in plant-based protein and soluble fibre. Ideal for health-forward food formulations and retail.",
       "weight": "70g",
-      "origin": "Korea",
       "certifications": [
-        "Wellness",
-        "HACCP",
+        "HACCP"
+      ],
+      "category": "grain",
+      "featured": true,
+      "image": "/images/products/product-chickpea-oat.webp",
+      "gallery": [
+        "/images/product-page-70g/pdp-detail-01.webp",
+        "/images/product-page-70g/pdp-detail-02.webp",
+        "/images/product-page-70g/pdp-detail-03.webp",
+        "/images/product-page-70g/pdp-detail-04.webp",
+        "/images/product-page-70g/pdp-detail-05.webp",
+        "/images/product-page-70g/pdp-detail-06.webp"
+      ],
+      "madeIn": "Republic of Korea",
+      "grainOrigins": [
+        {
+          "grain": "Chickpeas",
+          "origin": "Canada"
+        },
+        {
+          "grain": "Oats",
+          "origin": "South Korea"
+        }
+      ],
+      "features": [
         "No Preservatives",
         "No Additives",
         "Water & Grains Only",
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ],
-      "category": "grain",
-      "featured": true,
-      "image": "/images/products/product-chickpea-oat.png",
-      "gallery": [
-        "/images/product-page-70g/pdp-detail-01.png",
-        "/images/product-page-70g/pdp-detail-02.png",
-        "/images/product-page-70g/pdp-detail-03.png",
-        "/images/product-page-70g/pdp-detail-04.png",
-        "/images/product-page-70g/pdp-detail-05.png",
-        "/images/product-page-70g/pdp-detail-06.png"
       ]
     },
     {
@@ -39,27 +50,38 @@
       "tagline": "Antioxidant-rich legume duo",
       "description": "Korean black soybeans paired with green lentils — a premium legume blend packed with anthocyanins, protein, and iron for functional food applications.",
       "weight": "70g",
-      "origin": "Korea",
       "certifications": [
-        "Wellness",
-        "HACCP",
+        "HACCP"
+      ],
+      "category": "grain",
+      "featured": true,
+      "image": "/images/products/product-black-soybean-lentil.webp",
+      "gallery": [
+        "/images/product-page-70g/pdp-detail-01.webp",
+        "/images/product-page-70g/pdp-detail-02.webp",
+        "/images/product-page-70g/pdp-detail-03.webp",
+        "/images/product-page-70g/pdp-detail-04.webp",
+        "/images/product-page-70g/pdp-detail-05.webp",
+        "/images/product-page-70g/pdp-detail-06.webp"
+      ],
+      "madeIn": "Republic of Korea",
+      "grainOrigins": [
+        {
+          "grain": "Black Soybeans",
+          "origin": "South Korea"
+        },
+        {
+          "grain": "Lentils",
+          "origin": "Canada"
+        }
+      ],
+      "features": [
         "No Preservatives",
         "No Additives",
         "Water & Grains Only",
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ],
-      "category": "grain",
-      "featured": true,
-      "image": "/images/products/product-black-soybean-lentil.png",
-      "gallery": [
-        "/images/product-page-70g/pdp-detail-01.png",
-        "/images/product-page-70g/pdp-detail-02.png",
-        "/images/product-page-70g/pdp-detail-03.png",
-        "/images/product-page-70g/pdp-detail-04.png",
-        "/images/product-page-70g/pdp-detail-05.png",
-        "/images/product-page-70g/pdp-detail-06.png"
       ]
     },
     {
@@ -70,27 +92,38 @@
       "tagline": "Ancient grains, modern nutrition",
       "description": "Whole-grain farro combined with earthy fava beans for a hearty, fibre-dense blend. A versatile ingredient for soups, salads, and grain bowl applications.",
       "weight": "70g",
-      "origin": "Korea",
       "certifications": [
-        "Wellness",
-        "HACCP",
+        "HACCP"
+      ],
+      "category": "grain",
+      "featured": true,
+      "image": "/images/products/product-farro-fava-bean.webp",
+      "gallery": [
+        "/images/product-page-70g/pdp-detail-01.webp",
+        "/images/product-page-70g/pdp-detail-02.webp",
+        "/images/product-page-70g/pdp-detail-03.webp",
+        "/images/product-page-70g/pdp-detail-04.webp",
+        "/images/product-page-70g/pdp-detail-05.webp",
+        "/images/product-page-70g/pdp-detail-06.webp"
+      ],
+      "madeIn": "Republic of Korea",
+      "grainOrigins": [
+        {
+          "grain": "Farro",
+          "origin": "United States"
+        },
+        {
+          "grain": "Fava Beans",
+          "origin": "Australia"
+        }
+      ],
+      "features": [
         "No Preservatives",
         "No Additives",
         "Water & Grains Only",
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ],
-      "category": "grain",
-      "featured": true,
-      "image": "/images/products/product-farro-fava-bean.png",
-      "gallery": [
-        "/images/product-page-70g/pdp-detail-01.png",
-        "/images/product-page-70g/pdp-detail-02.png",
-        "/images/product-page-70g/pdp-detail-03.png",
-        "/images/product-page-70g/pdp-detail-04.png",
-        "/images/product-page-70g/pdp-detail-05.png",
-        "/images/product-page-70g/pdp-detail-06.png"
       ]
     },
     {
@@ -101,27 +134,38 @@
       "tagline": "Single-serve wellness, elevated",
       "description": "Our signature Chickpeas & Oats blend in a convenient 110g premium care format. Perfectly portioned for on-the-go nutrition without compromising quality.",
       "weight": "110g",
-      "origin": "Korea",
       "certifications": [
-        "Wellness",
-        "HACCP",
+        "HACCP"
+      ],
+      "category": "premium",
+      "featured": false,
+      "image": "/images/products/premium-chickpea-oat-110g.webp",
+      "gallery": [
+        "/images/product-page-110g/pdp-detail-01.webp",
+        "/images/product-page-110g/pdp-detail-02.webp",
+        "/images/product-page-110g/pdp-detail-03.webp",
+        "/images/product-page-110g/pdp-detail-04.webp",
+        "/images/product-page-110g/pdp-detail-05.webp",
+        "/images/product-page-110g/pdp-detail-06.webp"
+      ],
+      "madeIn": "Republic of Korea",
+      "grainOrigins": [
+        {
+          "grain": "Chickpeas",
+          "origin": "Canada"
+        },
+        {
+          "grain": "Oats",
+          "origin": "South Korea"
+        }
+      ],
+      "features": [
         "No Preservatives",
         "No Additives",
         "Water & Grains Only",
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ],
-      "category": "premium",
-      "featured": false,
-      "image": "/images/products/premium-chickpea-oat-110g.png",
-      "gallery": [
-        "/images/product-page-110g/pdp-detail-01.png",
-        "/images/product-page-110g/pdp-detail-02.png",
-        "/images/product-page-110g/pdp-detail-03.png",
-        "/images/product-page-110g/pdp-detail-04.png",
-        "/images/product-page-110g/pdp-detail-05.png",
-        "/images/product-page-110g/pdp-detail-06.png"
       ]
     },
     {
@@ -132,27 +176,38 @@
       "tagline": "Antioxidant power in every serving",
       "description": "Premium 110g single-serve pack of our Black Soybean & Lentil blend — rich in anthocyanins and plant protein, crafted for health-focused retail and gifting.",
       "weight": "110g",
-      "origin": "Korea",
       "certifications": [
-        "Wellness",
-        "HACCP",
+        "HACCP"
+      ],
+      "category": "premium",
+      "featured": false,
+      "image": "/images/products/premium-black-soybean-lentil-110g.webp",
+      "gallery": [
+        "/images/product-page-110g/pdp-detail-01.webp",
+        "/images/product-page-110g/pdp-detail-02.webp",
+        "/images/product-page-110g/pdp-detail-03.webp",
+        "/images/product-page-110g/pdp-detail-04.webp",
+        "/images/product-page-110g/pdp-detail-05.webp",
+        "/images/product-page-110g/pdp-detail-06.webp"
+      ],
+      "madeIn": "Republic of Korea",
+      "grainOrigins": [
+        {
+          "grain": "Black Soybeans",
+          "origin": "South Korea"
+        },
+        {
+          "grain": "Lentils",
+          "origin": "Canada"
+        }
+      ],
+      "features": [
         "No Preservatives",
         "No Additives",
         "Water & Grains Only",
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ],
-      "category": "premium",
-      "featured": false,
-      "image": "/images/products/premium-black-soybean-lentil-110g.png",
-      "gallery": [
-        "/images/product-page-110g/pdp-detail-01.png",
-        "/images/product-page-110g/pdp-detail-02.png",
-        "/images/product-page-110g/pdp-detail-03.png",
-        "/images/product-page-110g/pdp-detail-04.png",
-        "/images/product-page-110g/pdp-detail-05.png",
-        "/images/product-page-110g/pdp-detail-06.png"
       ]
     },
     {
@@ -163,27 +218,38 @@
       "tagline": "Heritage wheat, premium format",
       "description": "Ancient Khorasan wheat and whole farro in a 110g premium care edition. A rare heritage grain combination with a rich, nutty flavour and superior nutritional profile.",
       "weight": "110g",
-      "origin": "Korea",
       "certifications": [
-        "Wellness",
-        "HACCP",
+        "HACCP"
+      ],
+      "category": "premium",
+      "featured": false,
+      "image": "/images/products/premium-khorasan-farro-110g.webp",
+      "gallery": [
+        "/images/product-page-110g/pdp-detail-01.webp",
+        "/images/product-page-110g/pdp-detail-02.webp",
+        "/images/product-page-110g/pdp-detail-03.webp",
+        "/images/product-page-110g/pdp-detail-04.webp",
+        "/images/product-page-110g/pdp-detail-05.webp",
+        "/images/product-page-110g/pdp-detail-06.webp"
+      ],
+      "madeIn": "Republic of Korea",
+      "grainOrigins": [
+        {
+          "grain": "Khorasan Wheat",
+          "origin": "Canada"
+        },
+        {
+          "grain": "Farro",
+          "origin": "United States"
+        }
+      ],
+      "features": [
         "No Preservatives",
         "No Additives",
         "Water & Grains Only",
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ],
-      "category": "premium",
-      "featured": false,
-      "image": "/images/products/premium-khorasan-farro-110g.png",
-      "gallery": [
-        "/images/product-page-110g/pdp-detail-01.png",
-        "/images/product-page-110g/pdp-detail-02.png",
-        "/images/product-page-110g/pdp-detail-03.png",
-        "/images/product-page-110g/pdp-detail-04.png",
-        "/images/product-page-110g/pdp-detail-05.png",
-        "/images/product-page-110g/pdp-detail-06.png"
       ]
     }
   ]

@@ -92,6 +92,13 @@
   color: rgba(196,168,130,.5);
 }
 
+.footer__legal-link {
+  color: rgba(196,168,130,.7);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer__legal-link:hover { color: var(--color-accent-pale); }
+
 /* ─── 반응형 ─── */
 @media (max-width: 768px) {
   .footer__inner {

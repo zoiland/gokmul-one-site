@@ -32,7 +32,7 @@ export default function Navbar() {
       <div className="container navbar__inner">
         {/* 로고 */}
         <NavLink to="/" className="navbar__logo">
-          <img src="/images/logo/logo-transparent.png" alt="GOKMUL:ONE" className="navbar__logo-img" />
+          <img src="/images/logo/logo-transparent.webp" alt="GOKMUL:ONE" className="navbar__logo-img" />
         </NavLink>
 
         {/* 데스크탑 네비게이션 */}

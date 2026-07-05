@@ -331,8 +331,8 @@
 .brand-statement__headline {
   color: #fff;
   margin-bottom: 1.75rem;
-  font-size: clamp(3rem, 7vw, 5.5rem);
-  line-height: 1.05;
+  font-size: clamp(2.25rem, 5vw, 4.25rem);
+  line-height: 1.12;
   text-shadow: 0 4px 64px rgba(42,31,20,0.4);
 }
 .brand-statement__headline em {

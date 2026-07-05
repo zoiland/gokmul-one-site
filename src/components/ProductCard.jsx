@@ -13,7 +13,7 @@ function GrainPlaceholder() {
 }
 
 export default function ProductCard({ product }) {
-  const { slug, name, koreanName, tagline, description, weight, origin, certifications, image } = product
+  const { slug, name, koreanName, tagline, description, weight, madeIn, certifications, features, image } = product
 
   return (
     <Link to={`/products/${slug}`} className="product-card" aria-label={`View ${name} details`}>
@@ -38,18 +38,18 @@ export default function ProductCard({ product }) {
 
         <dl className="product-card__meta">
           <div>
-            <dt>Weight</dt>
+            <dt>Net Weight</dt>
             <dd>{weight}</dd>
           </div>
           <div>
-            <dt>Origin</dt>
-            <dd>{origin}</dd>
+            <dt>Manufactured In</dt>
+            <dd>{madeIn}</dd>
           </div>
         </dl>
 
-        {certifications?.length > 0 && (
+        {(certifications || features) && (
           <div className="product-card__certs">
-            {certifications.map(c => (
+            {[...(certifications ?? []), ...(features ?? []).slice(0, 3)].map(c => (
               <span key={c} className="badge">{c}</span>
             ))}
           </div>

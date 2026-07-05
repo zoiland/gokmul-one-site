@@ -9,7 +9,7 @@ export default function ProductDetail() {
 
   if (!product) return <Navigate to="/products" replace />
 
-  const { name, koreanName, tagline, description, weight, origin, certifications, image, gallery } = product
+  const { name, koreanName, tagline, description, weight, madeIn, grainOrigins, certifications, features, image, gallery } = product
   return (
     <>
       <Seo title={name} path={`/products/${slug}`} description={`${tagline} — ${description}`.slice(0, 300)} image={image} type="product" />
@@ -37,20 +37,40 @@ export default function ProductDetail() {
 
             <dl className="pdp-info__meta">
               <div>
-                <dt>Weight</dt>
+                <dt>Net Weight</dt>
                 <dd>{weight}</dd>
               </div>
               <div>
-                <dt>Origin</dt>
-                <dd>{origin}</dd>
+                <dt>Manufactured In</dt>
+                <dd>{madeIn}</dd>
               </div>
+              {grainOrigins?.length > 0 && (
+                <div className="pdp-info__meta--full">
+                  <dt>Ingredient Origins</dt>
+                  <dd>{grainOrigins.map(g => `${g.grain} (${g.origin})`).join(' · ')}</dd>
+                </div>
+              )}
             </dl>
 
             {certifications?.length > 0 && (
-              <div className="pdp-info__certs">
-                {certifications.map(c => (
-                  <span key={c} className="badge">{c}</span>
-                ))}
+              <div className="pdp-info__spec-group">
+                <p className="pdp-info__spec-label">Certifications</p>
+                <div className="pdp-info__certs">
+                  {certifications.map(c => (
+                    <span key={c} className="badge">{c}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {features?.length > 0 && (
+              <div className="pdp-info__spec-group">
+                <p className="pdp-info__spec-label">Product Features</p>
+                <div className="pdp-info__certs">
+                  {features.map(c => (
+                    <span key={c} className="badge">{c}</span>
+                  ))}
+                </div>
               </div>
             )}
 

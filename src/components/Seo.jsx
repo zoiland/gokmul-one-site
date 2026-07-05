@@ -3,7 +3,7 @@ import { Head } from 'vite-react-ssg'
 const SITE = 'https://www.gokmulone.com'
 const DEFAULT_DESCRIPTION =
   'GOKMUL:ONE supplies premium Korean grain products — HACCP-certified, clean-label, ready-to-eat whole grains made with water and grains only — to global buyers, distributors and food manufacturers.'
-const DEFAULT_IMAGE = `${SITE}/images/og-preview.png`
+const DEFAULT_IMAGE = `${SITE}/images/og-preview.jpg`
 
 /**
  * Per-page SEO tags (title, description, canonical, Open Graph, Twitter).

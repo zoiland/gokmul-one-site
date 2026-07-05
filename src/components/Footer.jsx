@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="footer">
       {/* 브랜드 이미지 — 원본 비율 전체 너비 표시 */}
       <div className="footer__image-wrap">
-        <img src="/images/company/brand-lifestyle.png" alt="GOKMUL:ONE brand" className="footer__image" />
+        <img src="/images/company/brand-lifestyle.webp" alt="GOKMUL:ONE brand" className="footer__image" />
       </div>
 
       <div className="container footer__inner">
@@ -46,7 +46,7 @@ export default function Footer() {
 
       <div className="footer__bottom">
         <div className="container">
-          <p>© {new Date().getFullYear()} GOKMUL:ONE. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} GOKMUL:ONE. All rights reserved. · <NavLink to="/privacy" className="footer__legal-link">Privacy Policy</NavLink></p>
           <p>곡물원 (GOKMUL:ONE) | CEO: Kim Kang | Business Reg. No.: 638-13-02161 | E-commerce Reg. No.: 2024-Incheon Yeonsu-0854</p>
         </div>
       </div>

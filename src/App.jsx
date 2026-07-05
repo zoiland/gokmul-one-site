@@ -7,6 +7,7 @@ import Gallery from './pages/Gallery'
 import News from './pages/News'
 import NewsDetail from './pages/NewsDetail'
 import Contact from './pages/Contact'
+import Privacy from './pages/Privacy'
 import productsData from './data/products.json'
 import newsData from './data/news.json'
 
@@ -32,6 +33,7 @@ export const routes = [
         getStaticPaths: () => newsData.articles.map(a => `news/${a.slug}`),
       },
       { path: 'contact', element: <Contact /> },
+      { path: 'privacy', element: <Privacy /> },
     ],
   },
 ]
