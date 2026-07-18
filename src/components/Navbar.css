@@ -142,3 +142,27 @@
   .navbar__burger { display: flex; }
   .navbar__mobile { display: flex; }
 }
+
+/* ─── 언어 전환 ─── */
+.navbar__lang {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .78rem;
+  letter-spacing: .05em;
+}
+.navbar__lang-link {
+  color: var(--color-text-muted);
+  font-weight: 500;
+  transition: color .2s;
+}
+.navbar__lang-link:hover { color: var(--color-text); }
+.navbar__lang-link--active { color: var(--color-text); font-weight: 700; }
+.navbar__lang-sep { color: var(--color-border); font-size: .7rem; }
+
+.navbar--dark-hero .navbar__lang-link { color: rgba(255,255,255,0.6); }
+.navbar--dark-hero .navbar__lang-link:hover,
+.navbar--dark-hero .navbar__lang-link--active { color: #fff; }
+.navbar--dark-hero .navbar__lang-sep { color: rgba(255,255,255,0.3); }
+
+.navbar__mobile-lang { padding: .75rem 0; }

@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Brand from './pages/Brand'
 import Products from './pages/Products'
 import ProductDetail from './pages/ProductDetail'
+import RiceGiBalancer from './pages/RiceGiBalancer'
 import Gallery from './pages/Gallery'
 import News from './pages/News'
 import NewsDetail from './pages/NewsDetail'
@@ -19,6 +20,7 @@ export const routes = [
       { index: true, element: <Home /> },
       { path: 'brand', element: <Brand /> },
       { path: 'products', element: <Products /> },
+      { path: 'gi-balancer', element: <RiceGiBalancer /> },
       {
         path: 'products/:slug',
         element: <ProductDetail />,
@@ -34,6 +36,31 @@ export const routes = [
       },
       { path: 'contact', element: <Contact /> },
       { path: 'privacy', element: <Privacy /> },
+
+      // ─── 한국어 (/kr) — 동일 컴포넌트, URL 프리픽스로 로케일 판별 ───
+      {
+        path: 'kr',
+        children: [
+          { index: true, element: <Home /> },
+          { path: 'brand', element: <Brand /> },
+          { path: 'products', element: <Products /> },
+          { path: 'gi-balancer', element: <RiceGiBalancer /> },
+          {
+            path: 'products/:slug',
+            element: <ProductDetail />,
+            getStaticPaths: () => productsData.products.map(p => `products/${p.slug}`),
+          },
+          { path: 'gallery', element: <Gallery /> },
+          { path: 'news', element: <News /> },
+          {
+            path: 'news/:slug',
+            element: <NewsDetail />,
+            getStaticPaths: () => newsData.articles.map(a => `news/${a.slug}`),
+          },
+          { path: 'contact', element: <Contact /> },
+          { path: 'privacy', element: <Privacy /> },
+        ],
+      },
     ],
   },
 ]

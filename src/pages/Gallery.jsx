@@ -1,9 +1,29 @@
 import { useEffect, useState, useCallback } from 'react'
 import './Gallery.css'
 import Seo from '../components/Seo'
+import { useLocale } from '../i18n'
 import galleryData from '../data/gallery.json'
 
+const COPY = {
+  en: {
+    seoTitle: 'Gallery',
+    seoDesc: 'Real moments from the GOKMUL:ONE community — customers around the world enjoying our ready-to-eat Korean grains, their way, every day.',
+    eyebrow: 'Gallery',
+    title: 'Loved at every table.',
+    desc: 'Real moments from our community — customers enjoying GOKMUL:ONE grains, their way, every day.',
+  },
+  ko: {
+    seoTitle: '갤러리',
+    seoDesc: '곡물:원 고객들의 진짜 순간들 — 저마다의 방식으로 매일 곡물톡톡을 즐기는 일상을 만나보세요.',
+    eyebrow: '갤러리',
+    title: '모두의 식탁에서 사랑받다.',
+    desc: '곡물:원을 즐기는 고객들의 진짜 순간들 — 저마다의 방식으로, 매일의 일상에서.',
+  },
+}
+
 export default function Gallery() {
+  const locale = useLocale()
+  const t = COPY[locale]
   const images = galleryData.images
   const [active, setActive] = useState(null) // 라이트박스로 열린 이미지 index (null = 닫힘)
 
@@ -49,19 +69,18 @@ export default function Gallery() {
   return (
     <>
       <Seo
-        title="Gallery"
+        title={t.seoTitle}
         path="/gallery"
-        description="Real moments from the GOKMUL:ONE community — customers around the world enjoying our ready-to-eat Korean grains, their way, every day."
+        description={t.seoDesc}
       />
 
       {/* ─── 헤더 ─── */}
       <section className="gallery-hero">
         <div className="container gallery-hero__inner">
-          <p className="label gallery-hero__eyebrow" data-reveal>Gallery</p>
-          <h1 className="display gallery-hero__title" data-reveal>Loved at every table.</h1>
+          <p className="label gallery-hero__eyebrow" data-reveal>{t.eyebrow}</p>
+          <h1 className="display gallery-hero__title" data-reveal>{t.title}</h1>
           <p className="gallery-hero__desc" data-reveal>
-            Real moments from our community — customers enjoying GOKMUL:ONE grains,
-            their way, every day.
+            {t.desc}
           </p>
         </div>
       </section>

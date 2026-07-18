@@ -4,60 +4,131 @@ import ProductCard from '../components/ProductCard'
 import NewsCard from '../components/NewsCard'
 import './Home.css'
 import Seo from '../components/Seo'
+import { useLocale, useLocalePath } from '../i18n'
 import productsData from '../data/products.json'
 import newsData from '../data/news.json'
 
 const FEATURED = productsData.products.filter(p => p.featured)
 const LATEST_NEWS = [...newsData.articles].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0)).slice(0, 3)
 
-const SCENES = [
-  {
-    image: '/images/hero/banner-001.webp',
-    eyebrow: 'Premium Korean Grain Products',
-    headline: ["From Korea's Soil,", "To the World's Table."],
-    cta: { label: 'Explore Products', to: '/products' },
-    ctaAlt: { label: 'Our Story', to: '/brand' },
-  },
-  {
-    image: '/images/hero/banner-002.webp',
-    eyebrow: 'Heritage & Craft',
-    headline: ['Rooted in Tradition,', 'Driven by Quality.'],
-    cta: null,
-    ctaAlt: null,
-  },
-  {
-    image: '/images/hero/banner-003.webp',
-    eyebrow: 'Premium Care Collection',
-    headline: ['Ancient Grains,', 'Modern Standards.'],
-    cta: { label: 'View Products', to: '/products' },
-    ctaAlt: { label: 'Get in Touch', to: '/contact' },
-  },
+const SCENE_IMAGES = [
+  '/images/hero/banner-001.webp',
+  '/images/hero/banner-002.webp',
+  '/images/hero/banner-003.webp',
 ]
 
-const ORIGINS = [
-  {
-    bg: '/images/department-store/house-of-shinsegae.webp',
-    tag: 'Wellness Market',
-    title: 'House of Shinsegae',
-    desc: 'Cheongdam Twelve Market — Korea\'s premier curated wellness destination.',
+const COPY = {
+  en: {
+    scenes: [
+      {
+        eyebrow: 'Premium Korean Grain Products',
+        headline: ["From Korea's Soil,", "To the World's Table."],
+        cta: { label: 'Explore Products', to: '/products' },
+        ctaAlt: { label: 'Our Story', to: '/brand' },
+      },
+      {
+        eyebrow: 'Heritage & Craft',
+        headline: ['Rooted in Tradition,', 'Driven by Quality.'],
+        cta: null,
+        ctaAlt: null,
+      },
+      {
+        eyebrow: 'Premium Care Collection',
+        headline: ['Ancient Grains,', 'Modern Standards.'],
+        cta: { label: 'View Products', to: '/products' },
+        ctaAlt: { label: 'Get in Touch', to: '/contact' },
+      },
+    ],
+    origins: [
+      {
+        tag: 'Wellness Market',
+        title: 'House of Shinsegae',
+        desc: "Cheongdam Twelve Market — Korea's premier curated wellness destination.",
+      },
+      {
+        tag: 'Premium Retail',
+        title: 'Shinsegae Main Branch',
+        desc: "Myeongdong flagship — Korea's most prestigious department store since 1930.",
+      },
+      {
+        tag: 'Premium Retail',
+        title: 'Shinsegae Gangnam',
+        desc: "Korea's top-grossing department store, serving Seoul's most discerning shoppers.",
+      },
+    ],
+    originsLabel: 'Available At',
+    originsTitle: "Korea's Finest Retailers",
+    featuredLabel: 'Our Selection',
+    featuredTitle: 'Featured Products',
+    viewAll: 'View All',
+    newsLabel: 'Newsroom',
+    newsTitle: 'Latest News',
+    stmtEyebrow: 'Since 2022',
+    stmtHeadline: <>Premium Korean Whole Grains,<em>Curated for Everyday Wellness</em></>,
+    stmtSub: <>We bring together Korea's grain heritage, clean ingredients, and balanced nutrition<br />to create convenient wellness foods for today's global consumers.</>,
+    catalog: 'Product Catalog (PDF, 13 MB)',
+    ctaTitle: 'Ready to source Korean grains?',
+    ctaDesc: <>MOQ inquiries, custom packaging, and OEM/ODM &mdash; our team is ready.</>,
+    ctaBtn: 'Get in Touch',
   },
-  {
-    bg: '/images/department-store/shinsegae-main.webp',
-    tag: 'Premium Retail',
-    title: 'Shinsegae Main Branch',
-    desc: 'Myeongdong flagship — Korea\'s most prestigious department store since 1930.',
+  ko: {
+    scenes: [
+      {
+        eyebrow: '프리미엄 곡물 브랜드, 곡물:원',
+        headline: ['한국의 땅에서,', '세계의 식탁으로.'],
+        cta: { label: '제품 보기', to: '/products' },
+        ctaAlt: { label: '브랜드 스토리', to: '/brand' },
+      },
+      {
+        eyebrow: '전통과 정성',
+        headline: ['전통에 뿌리내리고,', '품질로 완성하다.'],
+        cta: null,
+        ctaAlt: null,
+      },
+      {
+        eyebrow: '프리미엄 케어 컬렉션',
+        headline: ['오래된 곡물,', '새로운 기준.'],
+        cta: { label: '제품 보기', to: '/products' },
+        ctaAlt: { label: '문의하기', to: '/contact' },
+      },
+    ],
+    origins: [
+      {
+        tag: '웰니스 마켓',
+        title: '하우스 오브 신세계',
+        desc: '청담 트웰브 마켓 — 대한민국 대표 프리미엄 웰니스 큐레이션 마켓.',
+      },
+      {
+        tag: '프리미엄 리테일',
+        title: '신세계백화점 본점',
+        desc: '1930년부터 이어온 대한민국 대표 백화점, 명동 본점.',
+      },
+      {
+        tag: '프리미엄 리테일',
+        title: '신세계백화점 강남점',
+        desc: '국내 최대 매출을 자랑하는 프리미엄 백화점, 강남점.',
+      },
+    ],
+    originsLabel: '입점 채널',
+    originsTitle: '대한민국 프리미엄 유통망',
+    featuredLabel: '추천 제품',
+    featuredTitle: '대표 제품',
+    viewAll: '전체 보기',
+    newsLabel: '뉴스룸',
+    newsTitle: '최신 소식',
+    stmtEyebrow: 'Since 2022',
+    stmtHeadline: <>프리미엄 통곡물,<em>일상의 웰니스를 위한 큐레이션</em></>,
+    stmtSub: <>한국 곡물의 유산과 깨끗한 원재료, 균형 잡힌 영양을 담아<br />바쁜 일상에서도 간편하게 즐기는 웰니스 푸드를 만듭니다.</>,
+    catalog: '제품 카탈로그 (PDF, 13 MB)',
+    ctaTitle: '곡물:원과 함께하세요',
+    ctaDesc: <>대량 구매, 맞춤 패키징, OEM/ODM 문의를 기다립니다.</>,
+    ctaBtn: '문의하기',
   },
-  {
-    bg: '/images/department-store/shinsegae-gangnam.webp',
-    tag: 'Premium Retail',
-    title: 'Shinsegae Gangnam',
-    desc: 'Korea\'s top-grossing department store, serving Seoul\'s most discerning shoppers.',
-  },
-]
+}
 
 // 스크롤 진행도 p(0→1) 에서 씬 i 의 opacity 계산
 // FADE: 씬 경계 부근에서 crossfade 가 일어나는 폭 (0~1 단위)
-function getSceneOpacity(i, p, n = SCENES.length, FADE = 0.09) {
+function getSceneOpacity(i, p, n = SCENE_IMAGES.length, FADE = 0.09) {
   const start = i / n
   const end   = (i + 1) / n
   if (i === 0) {
@@ -77,6 +148,10 @@ function getSceneOpacity(i, p, n = SCENES.length, FADE = 0.09) {
 }
 
 export default function Home() {
+  const locale = useLocale()
+  const lp = useLocalePath()
+  const t = COPY[locale]
+
   const products = FEATURED
   const [currentScene, setCurrentScene] = useState(-1)
 
@@ -108,7 +183,7 @@ export default function Home() {
       })
 
       // 텍스트: 지배적 씬이 바뀔 때만 state 업데이트
-      const dominant = Math.min(SCENES.length - 1, Math.floor(p * SCENES.length + 0.03))
+      const dominant = Math.min(SCENE_IMAGES.length - 1, Math.floor(p * SCENE_IMAGES.length + 0.03))
       if (dominant !== currentSceneRef.current) {
         currentSceneRef.current = dominant
         setCurrentScene(dominant)
@@ -142,20 +217,20 @@ export default function Home() {
         <div className="hero-block__inner">
 
           {/* 이미지 레이어 — opacity를 JS가 직접 제어 (crossfade) */}
-          {SCENES.map((s, i) => (
+          {SCENE_IMAGES.map((image, i) => (
             <div
               key={i}
               className="hero-layer"
               ref={el => layerRefs.current[i] = el}
               style={{ opacity: i === 0 ? 1 : 0 }}
             >
-              <div className="hero-layer__bg" style={{ backgroundImage: `url(${s.image})` }} />
+              <div className="hero-layer__bg" style={{ backgroundImage: `url(${image})` }} />
               <div className="hero-layer__overlay" />
             </div>
           ))}
 
           {/* 텍스트 레이어 — CSS transition으로 씬 전환 시 애니메이션 */}
-          {SCENES.map((s, i) => (
+          {t.scenes.map((s, i) => (
             <div
               key={i}
               className={`hero-text${currentScene === i ? ' hero-text--visible' : ''}`}
@@ -167,8 +242,8 @@ export default function Home() {
                 </h1>
                 {(s.cta || s.ctaAlt) && (
                   <div className="hero-actions">
-                    {s.cta    && <Link to={s.cta.to}    className="btn btn-primary">{s.cta.label}</Link>}
-                    {s.ctaAlt && <Link to={s.ctaAlt.to} className="btn btn-outline-light">{s.ctaAlt.label}</Link>}
+                    {s.cta    && <Link to={lp(s.cta.to)}    className="btn btn-primary">{s.cta.label}</Link>}
+                    {s.ctaAlt && <Link to={lp(s.ctaAlt.to)} className="btn btn-outline-light">{s.ctaAlt.label}</Link>}
                   </div>
                 )}
               </div>
@@ -192,18 +267,22 @@ export default function Home() {
       <section className="origins section">
         <div className="container">
           <div className="origins__header" data-reveal>
-            <p className="label">Available At</p>
-            <h2 className="heading-lg">Korea's Finest Retailers</h2>
+            <p className="label">{t.originsLabel}</p>
+            <h2 className="heading-lg">{t.originsTitle}</h2>
           </div>
           <div className="origins__grid">
-            {ORIGINS.map(({ bg, tag, title, desc }, i) => (
+            {t.origins.map(({ tag, title, desc }, i) => (
               <div
                 key={i}
                 className="origin-tile"
                 data-reveal
                 style={{ '--delay': `${i * 0.12}s` }}
               >
-                <div className="origin-tile__image" style={{ backgroundImage: `url(${bg})` }} />
+                <div className="origin-tile__image" style={{ backgroundImage: `url(${[
+                  '/images/department-store/house-of-shinsegae.webp',
+                  '/images/department-store/shinsegae-main.webp',
+                  '/images/department-store/shinsegae-gangnam.webp',
+                ][i]})` }} />
                 <div className="origin-tile__overlay" />
                 <div className="origin-tile__body">
                   <span className="origin-tile__tag label">{tag}</span>
@@ -221,10 +300,10 @@ export default function Home() {
         <div className="container">
           <div className="home-featured__header" data-reveal>
             <div>
-              <p className="label">Our Selection</p>
-              <h2 className="heading-lg">Featured Products</h2>
+              <p className="label">{t.featuredLabel}</p>
+              <h2 className="heading-lg">{t.featuredTitle}</h2>
             </div>
-            <Link to="/products" className="btn btn-outline">View All</Link>
+            <Link to={lp('/products')} className="btn btn-outline">{t.viewAll}</Link>
           </div>
           <div className="home-featured__grid">
             {products.map((p, i) => (
@@ -242,10 +321,10 @@ export default function Home() {
           <div className="container">
             <div className="home-featured__header" data-reveal>
               <div>
-                <p className="label">Newsroom</p>
-                <h2 className="heading-lg">Latest News</h2>
+                <p className="label">{t.newsLabel}</p>
+                <h2 className="heading-lg">{t.newsTitle}</h2>
               </div>
-              <Link to="/news" className="btn btn-outline">View All</Link>
+              <Link to={lp('/news')} className="btn btn-outline">{t.viewAll}</Link>
             </div>
             <div className="home-featured__grid">
               {LATEST_NEWS.map((a, i) => (
@@ -262,16 +341,15 @@ export default function Home() {
       <section className="brand-statement">
         <div className="brand-statement__bg" style={{ backgroundImage: 'url(/images/company/ceramic-shot.webp)' }} />
         <div className="brand-statement__inner container">
-          <p className="brand-statement__eyebrow label" data-reveal>Since 2022</p>
+          <p className="brand-statement__eyebrow label" data-reveal>{t.stmtEyebrow}</p>
           <h2 className="brand-statement__headline display" data-reveal>
-            Premium Korean Whole Grains,<em>Curated for Everyday Wellness</em>
+            {t.stmtHeadline}
           </h2>
           <p className="brand-statement__sub" data-reveal>
-            We bring together Korea's grain heritage, clean ingredients, and balanced nutrition<br />
-            to create convenient wellness foods for today's global consumers.
+            {t.stmtSub}
           </p>
           <div data-reveal>
-            <a href="/documents/gokmul-one-product-catalog.pdf" download className="btn btn-outline-light">Product Catalog (PDF, 13 MB)</a>
+            <a href="/documents/gokmul-one-product-catalog.pdf" download className="btn btn-outline-light">{t.catalog}</a>
           </div>
         </div>
       </section>
@@ -280,10 +358,10 @@ export default function Home() {
       <section className="home-cta section-sm">
         <div className="container home-cta__inner" data-reveal>
           <div>
-            <h2 className="heading-md">Ready to source Korean grains?</h2>
-            <p>MOQ inquiries, custom packaging, and OEM/ODM &mdash; our team is ready.</p>
+            <h2 className="heading-md">{t.ctaTitle}</h2>
+            <p>{t.ctaDesc}</p>
           </div>
-          <Link to="/contact" className="btn btn-primary">Get in Touch</Link>
+          <Link to={lp('/contact')} className="btn btn-primary">{t.ctaBtn}</Link>
         </div>
       </section>
     </>

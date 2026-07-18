@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useLocale, useLocalePath, FEATURE_KO, MADE_IN_KO } from '../i18n'
 import './ProductCard.css'
 
 function GrainPlaceholder() {
@@ -12,15 +13,31 @@ function GrainPlaceholder() {
   )
 }
 
+const LABELS = {
+  en: { weight: 'Net Weight', madeIn: 'Manufactured In', cta: 'View Details →' },
+  ko: { weight: '내용량', madeIn: '제조국', cta: '자세히 보기 →' },
+}
+
 export default function ProductCard({ product }) {
-  const { slug, name, koreanName, tagline, description, weight, madeIn, certifications, features, image } = product
+  const locale = useLocale()
+  const lp = useLocalePath()
+  const L = LABELS[locale]
+  const { slug, name, nameKo, koreanName, tagline, taglineKo, description, descriptionKo, weight, madeIn, certifications, features, image } = product
+
+  const ko = locale === 'ko'
+  const displayName = ko ? (nameKo || name) : name
+  const subName     = ko ? name : koreanName
+  const displayTag  = ko ? (taglineKo || tagline) : tagline
+  const displayDesc = ko ? (descriptionKo || description) : description
+  const displayMadeIn = ko ? MADE_IN_KO : madeIn
+  const badge = c => (ko ? (FEATURE_KO[c] || c) : c)
 
   return (
-    <Link to={`/products/${slug}`} className="product-card" aria-label={`View ${name} details`}>
+    <Link to={lp(`/products/${slug}`)} className="product-card" aria-label={`View ${name} details`}>
       {/* 이미지 영역 */}
       <div className="product-card__image-wrap">
         {image ? (
-          <img src={image} alt={name} className="product-card__image" />
+          <img src={image} alt={displayName} className="product-card__image" />
         ) : (
           <div className="product-card__placeholder">
             <GrainPlaceholder />
@@ -30,32 +47,32 @@ export default function ProductCard({ product }) {
 
       {/* 콘텐츠 */}
       <div className="product-card__body">
-        <p className="product-card__korean">{koreanName}</p>
-        <h3 className="product-card__name heading-md">{name}</h3>
-        <p className="product-card__tagline">{tagline}</p>
+        <p className="product-card__korean">{subName}</p>
+        <h3 className="product-card__name heading-md">{displayName}</h3>
+        <p className="product-card__tagline">{displayTag}</p>
         <div className="divider" />
-        <p className="product-card__desc">{description}</p>
+        <p className="product-card__desc">{displayDesc}</p>
 
         <dl className="product-card__meta">
           <div>
-            <dt>Net Weight</dt>
+            <dt>{L.weight}</dt>
             <dd>{weight}</dd>
           </div>
           <div>
-            <dt>Manufactured In</dt>
-            <dd>{madeIn}</dd>
+            <dt>{L.madeIn}</dt>
+            <dd>{displayMadeIn}</dd>
           </div>
         </dl>
 
         {(certifications || features) && (
           <div className="product-card__certs">
             {[...(certifications ?? []), ...(features ?? []).slice(0, 3)].map(c => (
-              <span key={c} className="badge">{c}</span>
+              <span key={c} className="badge">{badge(c)}</span>
             ))}
           </div>
         )}
 
-        <span className="product-card__cta">View Details →</span>
+        <span className="product-card__cta">{L.cta}</span>
       </div>
     </Link>
   )

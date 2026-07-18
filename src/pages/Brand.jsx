@@ -2,8 +2,64 @@ import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Brand.css'
 import Seo from '../components/Seo'
+import { useLocale, useLocalePath } from '../i18n'
+
+const COPY = {
+  en: {
+    seoTitle: 'Our Story',
+    seoDesc: 'GOKMUL:ONE — Korean Premium Grain Care. Through our Grain-Care Technology we make better grains easier to eat, easier to choose, and easier to enjoy every day.',
+    heroEyebrow: 'Our Story',
+    heroTitle: <>Better grains,<br />made easier for<br />everyday life.</>,
+    stmtLead: 'Grains have long been at the heart of healthy eating.',
+    stmtBody: 'Yet in modern life, they are often too difficult to prepare and too inconvenient to enjoy every day.',
+    purposeEyebrow: 'Our Purpose',
+    purposeTitle: <>GOKMUL:ONE was created<br />to solve this gap.</>,
+    purposeBody: 'We believe that better grains should be easier to eat, easier to choose, and easier to make part of everyday life.',
+    techAlt: 'GOKMUL:ONE Grain-Care Technology — each blend prepared at its optimal texture and flavour',
+    techLabel: 'Grain-Care Technology',
+    techTitle: <>Studied by grain,<br />prepared with care.</>,
+    techBody1: 'Through our Grain-Care Technology, we study the natural properties of each grain and prepare every blend at its optimal texture and flavour.',
+    techBody2: 'The result is a new grain-based food experience that preserves the satisfaction of a real, chewable meal — while adding the convenience modern consumers need.',
+    careEyebrow: 'Korean Premium Grain Care',
+    careTitle: 'More than a convenient meal.',
+    careBody: 'GOKMUL:ONE is more than a convenient meal option. It is Korean Premium Grain Care — designed for everyday eating, and made for better nutrition.',
+    closeLabel: 'GOKMUL:ONE',
+    closeTagline: 'Better grains, made easier for everyday life.',
+    closeCta1: 'Explore Products',
+    closeCta2: 'Partner With Us',
+    trust: ['HACCP', 'No Preservatives', 'No Additives', 'Water & Grains Only', 'Steamed Grains', 'Clean Label', 'Ready to Eat'],
+  },
+  ko: {
+    seoTitle: '브랜드 스토리',
+    seoDesc: '곡물:원 — 코리안 프리미엄 그레인 케어. 그레인케어 기술로 더 좋은 곡물을 더 쉽게 먹고, 더 쉽게 선택하고, 매일 즐길 수 있게 만듭니다.',
+    heroEyebrow: '브랜드 스토리',
+    heroTitle: <>더 좋은 곡물을,<br />일상에서<br />더 쉽게.</>,
+    stmtLead: '곡물은 오래전부터 건강한 식탁의 중심이었습니다.',
+    stmtBody: '하지만 바쁜 현대의 일상에서 곡물은 준비하기 번거롭고, 매일 챙겨 먹기 어려운 음식이 되었습니다.',
+    purposeEyebrow: '우리의 시작',
+    purposeTitle: <>곡물:원은 그 간극을 잇기 위해<br />시작되었습니다.</>,
+    purposeBody: '우리는 더 좋은 곡물이 더 쉽게 선택되고, 더 편하게, 매일의 일상이 되어야 한다고 믿습니다.',
+    techAlt: '곡물:원 그레인케어 기술 — 곡물마다 가장 알맞은 식감과 풍미로 완성',
+    techLabel: '그레인케어 기술',
+    techTitle: <>곡물마다 연구하고,<br />정성으로 준비합니다.</>,
+    techBody1: '곡물:원의 그레인케어 기술은 곡물 고유의 특성을 연구해 각 블렌드를 가장 알맞은 식감과 풍미로 완성합니다.',
+    techBody2: '꼭꼭 씹어 먹는 진짜 식사의 만족감은 지키면서, 현대인에게 필요한 간편함을 더한 새로운 곡물 식문화를 제안합니다.',
+    careEyebrow: '코리안 프리미엄 그레인 케어',
+    careTitle: '간편식, 그 이상.',
+    careBody: '곡물:원은 단순한 간편식이 아닙니다. 매일의 식사를 위해 설계되고, 더 나은 영양을 위해 만들어진 코리안 프리미엄 그레인 케어입니다.',
+    closeLabel: 'GOKMUL:ONE',
+    closeTagline: '더 좋은 곡물을, 일상에서 더 쉽게.',
+    closeCta1: '제품 보기',
+    closeCta2: '파트너십 문의',
+    trust: ['HACCP 인증', '무보존료', '무첨가물', '물과 곡물만', '스팀 쿠킹', '클린 라벨', '바로 섭취'],
+  },
+}
 
 export default function Brand() {
+  const locale = useLocale()
+  const lp = useLocalePath()
+  const t = COPY[locale]
+
   // ─── 스크롤 페이드인 (전역 [data-reveal] 재사용) ───
   useEffect(() => {
     const els = document.querySelectorAll('[data-reveal]:not(.is-visible)')
@@ -48,9 +104,9 @@ export default function Brand() {
   return (
     <>
       <Seo
-        title="Our Story"
+        title={t.seoTitle}
         path="/brand"
-        description="GOKMUL:ONE — Korean Premium Grain Care. Through our Grain-Care Technology we make better grains easier to eat, easier to choose, and easier to enjoy every day."
+        description={t.seoDesc}
       />
 
       {/* ─── 히어로 ─── */}
@@ -62,9 +118,9 @@ export default function Brand() {
         />
         <div className="brand2-hero__scrim" />
         <div className="container brand2-hero__inner">
-          <p className="label brand2-hero__eyebrow" data-reveal>Our Story</p>
+          <p className="label brand2-hero__eyebrow" data-reveal>{t.heroEyebrow}</p>
           <h1 className="display brand2-hero__title" data-reveal>
-            Better grains,<br />made easier for<br />everyday life.
+            {t.heroTitle}
           </h1>
           <span className="brand2-hero__cue" aria-hidden="true" />
         </div>
@@ -74,11 +130,10 @@ export default function Brand() {
       <section className="brand2-statement section">
         <div className="container brand2-statement__inner">
           <p className="brand2-statement__lead display" data-reveal>
-            Grains have long been at the heart of healthy eating.
+            {t.stmtLead}
           </p>
           <p className="brand2-statement__body" data-reveal>
-            Yet in modern life, they are often too difficult to prepare
-            and too inconvenient to enjoy every day.
+            {t.stmtBody}
           </p>
         </div>
       </section>
@@ -93,12 +148,9 @@ export default function Brand() {
         <div className="brand2-scene__scrim" />
         <div className="container brand2-scene__inner">
           <div className="brand2-scene__card" data-reveal>
-            <p className="label brand2-scene__eyebrow">Our Purpose</p>
-            <h2 className="heading-lg">GOKMUL:ONE was created<br />to solve this gap.</h2>
-            <p>
-              We believe that better grains should be easier to eat,
-              easier to choose, and easier to make part of everyday life.
-            </p>
+            <p className="label brand2-scene__eyebrow">{t.purposeEyebrow}</p>
+            <h2 className="heading-lg">{t.purposeTitle}</h2>
+            <p>{t.purposeBody}</p>
           </div>
         </div>
       </section>
@@ -109,23 +161,16 @@ export default function Brand() {
           <figure className="brand2-split__media" data-reveal>
             <img
               src="/images/company/grain-care-technology.webp"
-              alt="GOKMUL:ONE Grain-Care Technology — each blend prepared at its optimal texture and flavour"
+              alt={t.techAlt}
               loading="lazy"
             />
           </figure>
           <div className="brand2-split__text" data-reveal>
-            <p className="label">Grain-Care Technology</p>
-            <h2 className="heading-lg">Studied by grain,<br />prepared with care.</h2>
+            <p className="label">{t.techLabel}</p>
+            <h2 className="heading-lg">{t.techTitle}</h2>
             <div className="divider" />
-            <p>
-              Through our Grain-Care Technology, we study the natural properties
-              of each grain and prepare every blend at its optimal texture and flavour.
-            </p>
-            <p>
-              The result is a new grain-based food experience that preserves the
-              satisfaction of a real, chewable meal — while adding the convenience
-              modern consumers need.
-            </p>
+            <p>{t.techBody1}</p>
+            <p>{t.techBody2}</p>
           </div>
         </div>
       </section>
@@ -140,13 +185,9 @@ export default function Brand() {
         <div className="brand2-scene__scrim brand2-scene__scrim--strong" />
         <div className="container brand2-scene__inner brand2-scene__inner--center">
           <div className="brand2-scene__card brand2-scene__card--plain" data-reveal>
-            <p className="label brand2-scene__eyebrow">Korean Premium Grain Care</p>
-            <h2 className="heading-lg">More than a convenient meal.</h2>
-            <p>
-              GOKMUL:ONE is more than a convenient meal option.
-              It is Korean Premium Grain Care — designed for everyday eating,
-              and made for better nutrition.
-            </p>
+            <p className="label brand2-scene__eyebrow">{t.careEyebrow}</p>
+            <h2 className="heading-lg">{t.careTitle}</h2>
+            <p>{t.careBody}</p>
           </div>
         </div>
       </section>
@@ -154,13 +195,13 @@ export default function Brand() {
       {/* ─── 마무리: 태그라인 + CTA ─── */}
       <section className="brand2-close section">
         <div className="container brand2-close__inner">
-          <p className="label" data-reveal>GOKMUL:ONE</p>
+          <p className="label" data-reveal>{t.closeLabel}</p>
           <p className="brand2-close__tagline display" data-reveal>
-            Better grains, made easier for everyday life.
+            {t.closeTagline}
           </p>
           <div className="brand2-close__cta" data-reveal>
-            <Link to="/products" className="btn btn-primary">Explore Products</Link>
-            <Link to="/contact" className="btn btn-outline">Partner With Us</Link>
+            <Link to={lp('/products')} className="btn btn-primary">{t.closeCta1}</Link>
+            <Link to={lp('/contact')} className="btn btn-outline">{t.closeCta2}</Link>
           </div>
         </div>
       </section>
@@ -168,7 +209,7 @@ export default function Brand() {
       {/* ─── 신뢰 스트립 ─── */}
       <section className="brand2-trust">
         <div className="container brand2-trust__inner" data-reveal>
-          {['HACCP', 'No Preservatives', 'No Additives', 'Water & Grains Only', 'Steamed Grains', 'Clean Label', 'Ready to Eat'].map(c => (
+          {t.trust.map(c => (
             <span key={c} className="brand2-trust__item">{c}</span>
           ))}
         </div>

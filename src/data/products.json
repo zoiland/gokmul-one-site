@@ -40,7 +40,10 @@
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ]
+      ],
+      "nameKo": "곡물톡톡 병아리콩귀리",
+      "taglineKo": "식물성 단백질과 통곡물의 만남",
+      "descriptionKo": "부드러운 병아리콩과 귀리를 담은 영양 블렌드. 식물성 단백질과 수용성 식이섬유가 풍부해 건강한 한 끼에 잘 어울립니다."
     },
     {
       "id": 2,
@@ -82,7 +85,10 @@
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ]
+      ],
+      "nameKo": "곡물톡톡 서리태렌틸콩",
+      "taglineKo": "항산화 성분이 풍부한 콩 블렌드",
+      "descriptionKo": "국산 서리태와 그린 렌틸콩의 프리미엄 블렌드. 안토시아닌과 식물성 단백질, 철분이 풍부합니다."
     },
     {
       "id": 3,
@@ -124,7 +130,10 @@
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ]
+      ],
+      "nameKo": "곡물톡톡 파로파바빈",
+      "taglineKo": "고대 곡물, 현대의 영양",
+      "descriptionKo": "통곡물 파로와 고소한 파바빈의 든든한 블렌드. 수프, 샐러드, 그레인 볼까지 두루 활용하기 좋습니다."
     },
     {
       "id": 4,
@@ -166,7 +175,10 @@
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ]
+      ],
+      "nameKo": "곡물톡톡 프리미엄 케어 — 병아리콩귀리",
+      "taglineKo": "한 팩으로 완성하는 웰니스",
+      "descriptionKo": "시그니처 병아리콩귀리 블렌드를 넉넉한 110g 프리미엄 케어 포맷으로. 언제 어디서든 간편하게 영양을 챙기세요."
     },
     {
       "id": 5,
@@ -208,7 +220,10 @@
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ]
+      ],
+      "nameKo": "곡물톡톡 프리미엄 케어 — 서리태렌틸콩",
+      "taglineKo": "매 끼니 챙기는 항산화 영양",
+      "descriptionKo": "서리태렌틸콩 블렌드의 110g 프리미엄 케어 에디션. 안토시아닌과 식물성 단백질이 풍부해 선물용으로도 좋습니다."
     },
     {
       "id": 6,
@@ -250,7 +265,10 @@
         "Steamed Grains",
         "Clean Label",
         "Ready to Eat"
-      ]
+      ],
+      "nameKo": "곡물톡톡 프리미엄 케어 — 호라산밀파로",
+      "taglineKo": "헤리티지 밀, 프리미엄 포맷",
+      "descriptionKo": "고대 호라산밀과 통곡물 파로를 담은 110g 프리미엄 케어 에디션. 고소하고 진한 풍미와 뛰어난 영양 밸런스를 자랑합니다."
     }
   ]
 }

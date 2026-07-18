@@ -1,26 +1,41 @@
 import './News.css'
 import Seo from '../components/Seo'
 import NewsCard from '../components/NewsCard'
+import { useLocale } from '../i18n'
 import newsData from '../data/news.json'
 
 const ARTICLES = [...newsData.articles].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
 
+const COPY = {
+  en: {
+    seoTitle: 'News',
+    seoDesc: 'Latest news, brand stories and product updates from GOKMUL:ONE — premium ready-to-eat Korean grains.',
+    label: 'Newsroom',
+    title: <>News &amp; Stories</>,
+    desc: 'Brand stories, product updates and moments from the GOKMUL:ONE team.',
+  },
+  ko: {
+    seoTitle: '뉴스',
+    seoDesc: '곡물:원의 최신 소식, 브랜드 스토리, 제품 업데이트를 만나보세요.',
+    label: '뉴스룸',
+    title: '뉴스 & 스토리',
+    desc: '곡물:원의 브랜드 소식과 제품 이야기, 팀의 순간들을 전합니다.',
+  },
+}
+
 export default function News() {
+  const locale = useLocale()
+  const t = COPY[locale]
+
   return (
     <>
-      <Seo
-        title="News"
-        path="/news"
-        description="Latest news, brand stories and product updates from GOKMUL:ONE — premium ready-to-eat Korean grains."
-      />
+      <Seo title={t.seoTitle} path="/news" description={t.seoDesc} />
 
       <section className="page-hero">
         <div className="container">
-          <p className="label">Newsroom</p>
-          <h1 className="display products-title">News &amp; Stories</h1>
-          <p className="products-hero-desc">
-            Brand stories, product updates and moments from the GOKMUL:ONE team.
-          </p>
+          <p className="label">{t.label}</p>
+          <h1 className="display products-title">{t.title}</h1>
+          <p className="products-hero-desc">{t.desc}</p>
         </div>
       </section>
 
