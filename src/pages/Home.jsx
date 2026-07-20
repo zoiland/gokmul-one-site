@@ -110,7 +110,7 @@ const COPY = {
       },
     ],
     originsLabel: '입점 안내',
-    originsTitle: '곡물:원을 만나실 수 있는 곳',
+    originsTitle: '오프라인에서 곡물원을 만나보세요',
     featuredLabel: '추천 제품',
     featuredTitle: '대표 제품',
     viewAll: '전체 보기',
