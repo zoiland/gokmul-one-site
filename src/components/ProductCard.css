@@ -86,6 +86,8 @@
 .product-card__name {
   margin-bottom: .35rem;
   color: var(--color-text);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  line-height: 1.35;
 }
 
 .product-card__tagline {

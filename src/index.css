@@ -10,8 +10,8 @@
   --color-accent-pale: #C4A882;
   --color-white:       #FFFFFF;
 
-  /* 영문: Fraunces/Inter · 한글: 나눔명조(제목)/프리텐다드(본문) 폴백으로 처리 */
-  --font-display: 'Fraunces', 'Nanum Myeongjo', Georgia, serif;
+  /* 영문: Fraunces/Inter · 한글: 프리텐다드 폴백으로 처리 (제목·본문 동일) */
+  --font-display: 'Fraunces', 'Pretendard Variable', Pretendard, Georgia, serif;
   --font-body:    'Inter', 'Pretendard Variable', Pretendard, system-ui, sans-serif;
 
   --radius-sm: 4px;
@@ -37,6 +37,7 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all; /* 한글: 단어 단위 줄바꿈 (영문에는 영향 없음) */
 }
 
 img { display: block; max-width: 100%; }
