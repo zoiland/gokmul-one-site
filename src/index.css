@@ -10,8 +10,9 @@
   --color-accent-pale: #C4A882;
   --color-white:       #FFFFFF;
 
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body:    'Inter', system-ui, sans-serif;
+  /* 영문: Fraunces/Inter · 한글: 나눔명조(제목)/프리텐다드(본문) 폴백으로 처리 */
+  --font-display: 'Fraunces', 'Nanum Myeongjo', Georgia, serif;
+  --font-body:    'Inter', 'Pretendard Variable', Pretendard, system-ui, sans-serif;
 
   --radius-sm: 4px;
   --radius-md: 8px;
