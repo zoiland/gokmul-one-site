@@ -74,20 +74,20 @@ const COPY = {
   ko: {
     scenes: [
       {
-        eyebrow: '프리미엄 곡물 브랜드, 곡물:원',
-        headline: ['한국의 땅에서,', '세계의 식탁으로.'],
+        eyebrow: '바로 먹는 프리미엄 곡물',
+        headline: ['좋은 곡물 한 끼,', '오늘부터 시작해요.'],
         cta: { label: '제품 보기', to: '/products' },
         ctaAlt: { label: '브랜드 스토리', to: '/brand' },
       },
       {
-        eyebrow: '전통과 정성',
-        headline: ['오랜 시간 이어온 전통,', '정성으로 빚은 품질.'],
+        eyebrow: '그레인케어 기술',
+        headline: ['불리지 않고, 삶지 않고,', '뜯어서 바로 한 끼.'],
         cta: null,
         ctaAlt: null,
       },
       {
         eyebrow: '프리미엄 케어 컬렉션',
-        headline: ['천년을 이어온 곡물,', '오늘의 기준으로.'],
+        headline: ['건강한 습관은,', '한 팩이면 충분해요.'],
         cta: { label: '제품 보기', to: '/products' },
         ctaAlt: { label: '문의하기', to: '/contact' },
       },
@@ -117,8 +117,8 @@ const COPY = {
     newsLabel: '뉴스룸',
     newsTitle: '새로운 소식',
     stmtEyebrow: 'Since 2022',
-    stmtHeadline: <>좋은 곡물로 만드는<em>건강한 매일의 식탁</em></>,
-    stmtSub: <>깨끗한 원재료와 균형 잡힌 영양을 담아,<br />바쁜 하루에도 부담 없이 즐기는 건강한 곡물 한 끼를 만듭니다.</>,
+    stmtHeadline: <>건강한 식습관,<em>곡물:원과 함께 시작해요</em></>,
+    stmtSub: <>깨끗한 원재료와 균형 잡힌 영양,<br />바쁜 하루에도 부담 없는 곡물 한 끼로 몸에 좋은 습관을 만들어갑니다.</>,
     catalog: '제품 카탈로그 받기 (PDF, 13 MB)',
     ctaTitle: '궁금한 점이 있으신가요?',
     ctaDesc: <>제품 문의부터 대량 구매, 납품·제휴 상담까지 편하게 문의해 주세요.</>,
