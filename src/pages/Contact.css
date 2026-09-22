@@ -20,7 +20,7 @@
 
 .brochure__list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: .75rem;
 }
 
@@ -29,7 +29,7 @@
   flex-direction: column;
   gap: .35rem;
   height: 100%;
-  padding: 1.1rem 1.25rem;
+  padding: 1rem;
   background: var(--color-white);
   border: 1.5px solid var(--color-border);
   border-radius: var(--radius-sm);
@@ -39,7 +39,7 @@
 a.brochure__item:hover { border-color: var(--color-accent); transform: translateY(-1px); }
 
 .brochure__name { font-weight: 600; color: var(--color-text); }
-.brochure__meta { font-size: .78rem; color: var(--color-accent); }
+.brochure__meta { font-size: .78rem; color: var(--color-accent); white-space: nowrap; }
 
 .brochure__item--soon { background: transparent; cursor: default; }
 .brochure__item--soon .brochure__name,
@@ -216,10 +216,10 @@ address {
 @media (max-width: 900px) {
   .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
   .brochure { grid-template-columns: 1fr; gap: 1.5rem; }
-  .brochure__list { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 560px) {
   .form-row { grid-template-columns: 1fr; }
+  .brochure__list { grid-template-columns: repeat(2, 1fr); }
   .contact-success { padding: 2rem; }
 }
