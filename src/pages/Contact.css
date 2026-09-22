@@ -7,6 +7,44 @@
   line-height: 1.8;
 }
 
+/* ─── 브로슈어 다운로드 ─── */
+.brochure {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.brochure__copy { display: flex; flex-direction: column; gap: .5rem; }
+.brochure__desc { font-size: .9rem; color: var(--color-text-muted); line-height: 1.7; }
+
+.brochure__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .75rem;
+}
+
+.brochure__item {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+  height: 100%;
+  padding: 1.1rem 1.25rem;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color .2s, transform .2s;
+}
+
+a.brochure__item:hover { border-color: var(--color-accent); transform: translateY(-1px); }
+
+.brochure__name { font-weight: 600; color: var(--color-text); }
+.brochure__meta { font-size: .78rem; color: var(--color-accent); }
+
+.brochure__item--soon { background: transparent; cursor: default; }
+.brochure__item--soon .brochure__name,
+.brochure__item--soon .brochure__meta { color: var(--color-text-muted); opacity: .7; }
+
 /* ─── 레이아웃 ─── */
 .contact-layout {
   display: grid;
@@ -177,6 +215,8 @@ address {
 /* ─── 반응형 ─── */
 @media (max-width: 900px) {
   .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .brochure { grid-template-columns: 1fr; gap: 1.5rem; }
+  .brochure__list { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 560px) {

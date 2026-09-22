@@ -3,6 +3,14 @@ import './Contact.css'
 import Seo from '../components/Seo'
 import { useLocale } from '../i18n'
 
+// 언어별 팜플렛 — file이 null이면 '준비 중'으로 표시. PDF는 public/documents/에 넣고 경로·용량 기입
+const BROCHURES = [
+  { lang: 'ko',    name: '한국어',   file: null, size: null },
+  { lang: 'en',    name: 'English',  file: '/documents/gokmul-one-product-catalog.pdf', size: '13 MB' },
+  { lang: 'zh-TW', name: '繁體中文', file: null, size: null },
+  { lang: 'zh-CN', name: '简体中文', file: null, size: null },
+]
+
 const COPY = {
   en: {
     seoTitle: 'Contact',
@@ -47,6 +55,10 @@ const COPY = {
     note: '* Required fields. We respect your privacy and will never share your information.',
     sending: 'Sending…',
     submit: 'Send Inquiry',
+    brochureLabel: 'Brochure',
+    brochureTitle: 'Download Our Brochure',
+    brochureDesc: 'Product line-up, specifications and certifications — available in four languages.',
+    comingSoon: 'Coming soon',
   },
   ko: {
     seoTitle: '문의하기',
@@ -91,6 +103,10 @@ const COPY = {
     note: '* 필수 항목입니다. 개인정보는 문의 응대 목적으로만 사용됩니다.',
     sending: '전송 중…',
     submit: '문의 보내기',
+    brochureLabel: '브로슈어',
+    brochureTitle: '제품 브로슈어 다운로드',
+    brochureDesc: '제품 라인업과 스펙, 인증 정보를 4개 언어로 확인하세요.',
+    comingSoon: '준비 중',
   },
 }
 
@@ -98,6 +114,7 @@ export default function Contact() {
   const locale = useLocale()
   const t = COPY[locale]
   const [state, handleSubmit] = useForm('mzdlpvvp')
+  const brochures = [...BROCHURES].sort((a, b) => (b.lang === locale) - (a.lang === locale))
 
   return (
     <>
@@ -108,6 +125,34 @@ export default function Contact() {
           <p className="label">{t.label}</p>
           <h1 className="display contact-title">{t.title}</h1>
           <p className="contact-hero-desc">{t.desc}</p>
+        </div>
+      </section>
+
+      {/* ─── 브로슈어 다운로드 ─── */}
+      <section className="section-sm" id="brochure">
+        <div className="container brochure">
+          <div className="brochure__copy">
+            <p className="label">{t.brochureLabel}</p>
+            <h2 className="heading-md">{t.brochureTitle}</h2>
+            <p className="brochure__desc">{t.brochureDesc}</p>
+          </div>
+          <ul className="brochure__list">
+            {brochures.map(b => (
+              <li key={b.lang}>
+                {b.file ? (
+                  <a className="brochure__item" href={b.file} download lang={b.lang}>
+                    <span className="brochure__name">{b.name}</span>
+                    <span className="brochure__meta">PDF · {b.size} ↓</span>
+                  </a>
+                ) : (
+                  <span className="brochure__item brochure__item--soon" aria-disabled="true" lang={b.lang}>
+                    <span className="brochure__name">{b.name}</span>
+                    <span className="brochure__meta">{t.comingSoon}</span>
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
