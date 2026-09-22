@@ -19,6 +19,7 @@ export default function Seo({
   path = '/',
   image = DEFAULT_IMAGE,
   type = 'website',
+  noindex = false,
 }) {
   const locale = useLocale()
   const desc = description || DEFAULT_DESCRIPTION[locale]
@@ -37,6 +38,7 @@ export default function Seo({
     <Head>
       <title>{fullTitle}</title>
       <meta name="description" content={desc} />
+      {noindex && <meta name="robots" content="noindex, nofollow" />}
       <link rel="canonical" href={url} />
       <link rel="alternate" hrefLang="en" href={enUrl} />
       <link rel="alternate" hrefLang="ko" href={koUrl} />

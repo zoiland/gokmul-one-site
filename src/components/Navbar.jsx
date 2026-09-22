@@ -7,7 +7,6 @@ const NAV_LINKS = [
   { to: '/',            en: 'Home',        ko: '홈' },
   { to: '/brand',       en: 'Brand',       ko: '브랜드' },
   { to: '/products',    en: 'Products',    ko: '제품' },
-  { to: '/gi-balancer', en: 'GI Balancer', ko: 'GI 밸런서' },
   { to: '/gallery',     en: 'Gallery',     ko: '갤러리' },
   { to: '/news',        en: 'News',        ko: '뉴스' },
   { to: '/contact',     en: 'Contact',     ko: '문의' },

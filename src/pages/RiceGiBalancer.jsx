@@ -182,6 +182,7 @@ export default function RiceGiBalancer() {
       <Seo
         title="우리집 밥상 GI 밸런서"
         path="/gi-balancer"
+        noindex
         description="백미, 현미, 귀리, 곡물톡톡 비율을 입력하고 우리집 밥상의 예상 혈당 부담 지표와 정기배송 권장량을 확인해보세요."
       />
 
