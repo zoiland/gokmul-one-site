@@ -6,7 +6,7 @@ import { useLocale } from '../i18n'
 // 언어별 팜플렛 — file이 null이면 '준비 중'으로 표시. PDF는 public/documents/에 넣고 경로·용량 기입
 const BROCHURES = [
   { lang: 'ko',    name: '한국어',   file: '/documents/gokmul-one-brochure-ko.pdf',    size: '18 MB' },
-  { lang: 'en',    name: 'English',  file: '/documents/gokmul-one-product-catalog.pdf', size: '13 MB' },
+  { lang: 'en',    name: 'English',  file: '/documents/gokmul-one-product-catalog.pdf', size: '10 MB' },
   { lang: 'ja',    name: '日本語',   file: '/documents/gokmul-one-brochure-ja.pdf',    size: '10 MB' },
   { lang: 'zh-TW', name: '繁體中文', file: '/documents/gokmul-one-brochure-zh-tw.pdf', size: '10 MB' },
   { lang: 'zh-CN', name: '简体中文', file: '/documents/gokmul-one-brochure-zh-cn.pdf', size: '10 MB' },
